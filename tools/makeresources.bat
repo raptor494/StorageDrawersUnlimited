@@ -1,6 +1,6 @@
 @echo off
 set olddir=%CD%
-cd C:\Users\flyin\Documents\Minecraft Modding\1.12.2\StorageDrawersUnlimited\tools
+cd %~dp0
 set jarfile=ResourceCreator\target\ResourceCreator-1.0-jar-with-dependencies.jar
 
 if ["%1"]==["help"] goto help
