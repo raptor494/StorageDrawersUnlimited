@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "storagedrawersunlimited:blocks/quark/drawers_magenta_stained_wood_side"
+    }
+}

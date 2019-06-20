@@ -1,0 +1,10 @@
+{
+    "parent": "storagedrawers:block/drawer_half",
+    "textures": {
+        "top": "storagedrawersunlimited:blocks/${modid}/drawers_${material}_side_h",
+        "front": "storagedrawersunlimited:blocks/${modid}/drawers_${material}_front_2",
+        "back": "storagedrawersunlimited:blocks/${modid}/drawers_${material}_side",
+        "side": "storagedrawersunlimited:blocks/${modid}/drawers_${material}_side_v",
+        "trim": "storagedrawersunlimited:blocks/${modid}/drawers_${material}_trim"
+    }
+}

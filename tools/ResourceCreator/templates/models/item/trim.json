@@ -1,0 +1,3 @@
+{
+    "parent": "storagedrawersunlimited:block/${modid}/trim_${material}"
+}

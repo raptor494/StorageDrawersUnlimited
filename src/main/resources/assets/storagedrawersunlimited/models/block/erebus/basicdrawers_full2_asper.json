@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/drawer_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:blocks/erebus/drawers_asper_side",
+        "front": "storagedrawersunlimited:blocks/erebus/drawers_asper_front_2",
+        "side": "storagedrawersunlimited:blocks/erebus/drawers_asper_side",
+        "trim": "storagedrawersunlimited:blocks/erebus/drawers_asper_trim"
+    }
+}

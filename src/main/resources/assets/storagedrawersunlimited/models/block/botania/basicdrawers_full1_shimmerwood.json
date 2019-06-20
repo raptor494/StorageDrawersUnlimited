@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/drawer_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:blocks/botania/drawers_shimmerwood_side",
+        "front": "storagedrawersunlimited:blocks/botania/drawers_shimmerwood_front_1",
+        "side": "storagedrawersunlimited:blocks/botania/drawers_shimmerwood_side",
+        "trim": "storagedrawersunlimited:blocks/botania/drawers_shimmerwood_trim"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/drawer_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:blocks/thebetweenlands/drawers_rubber_tree_side",
+        "front": "storagedrawersunlimited:blocks/thebetweenlands/drawers_rubber_tree_front_2",
+        "side": "storagedrawersunlimited:blocks/thebetweenlands/drawers_rubber_tree_side",
+        "trim": "storagedrawersunlimited:blocks/thebetweenlands/drawers_rubber_tree_trim"
+    }
+}

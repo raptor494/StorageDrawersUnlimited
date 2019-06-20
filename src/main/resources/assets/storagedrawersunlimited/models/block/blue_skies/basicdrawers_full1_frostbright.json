@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/drawer_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:blocks/blue_skies/drawers_frostbright_side",
+        "front": "storagedrawersunlimited:blocks/blue_skies/drawers_frostbright_front_1",
+        "side": "storagedrawersunlimited:blocks/blue_skies/drawers_frostbright_side",
+        "trim": "storagedrawersunlimited:blocks/blue_skies/drawers_frostbright_trim"
+    }
+}

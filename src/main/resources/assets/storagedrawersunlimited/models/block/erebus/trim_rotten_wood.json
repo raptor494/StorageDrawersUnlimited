@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "storagedrawersunlimited:blocks/erebus/drawers_rotten_wood_side"
+    }
+}

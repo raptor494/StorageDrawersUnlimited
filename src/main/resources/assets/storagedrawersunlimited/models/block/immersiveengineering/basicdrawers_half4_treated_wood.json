@@ -1,0 +1,10 @@
+{
+    "parent": "storagedrawers:block/drawer_half",
+    "textures": {
+        "top": "storagedrawersunlimited:blocks/immersiveengineering/drawers_treated_wood_side_h",
+        "front": "storagedrawersunlimited:blocks/immersiveengineering/drawers_treated_wood_front_4",
+        "back": "storagedrawersunlimited:blocks/immersiveengineering/drawers_treated_wood_side",
+        "side": "storagedrawersunlimited:blocks/immersiveengineering/drawers_treated_wood_side_v",
+        "trim": "storagedrawersunlimited:blocks/immersiveengineering/drawers_treated_wood_trim"
+    }
+}

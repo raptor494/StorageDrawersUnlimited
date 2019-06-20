@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/drawer_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:blocks/erebus/drawers_mahogany_side",
+        "front": "storagedrawersunlimited:blocks/erebus/drawers_mahogany_front_1",
+        "side": "storagedrawersunlimited:blocks/erebus/drawers_mahogany_side",
+        "trim": "storagedrawersunlimited:blocks/erebus/drawers_mahogany_trim"
+    }
+}

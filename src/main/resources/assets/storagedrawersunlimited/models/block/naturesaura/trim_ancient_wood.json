@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "storagedrawersunlimited:blocks/naturesaura/drawers_ancient_wood_side"
+    }
+}

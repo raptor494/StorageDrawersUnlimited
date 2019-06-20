@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "storagedrawersunlimited:blocks/growthcraft_apples/drawers_apple_wood_side"
+    }
+}

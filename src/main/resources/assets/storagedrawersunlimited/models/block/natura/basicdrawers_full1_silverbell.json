@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/drawer_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:blocks/natura/drawers_silverbell_side",
+        "front": "storagedrawersunlimited:blocks/natura/drawers_silverbell_front_1",
+        "side": "storagedrawersunlimited:blocks/natura/drawers_silverbell_side",
+        "trim": "storagedrawersunlimited:blocks/natura/drawers_silverbell_trim"
+    }
+}

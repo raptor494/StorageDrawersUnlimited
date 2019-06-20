@@ -1,0 +1,10 @@
+{
+    "parent": "storagedrawers:block/drawer_half",
+    "textures": {
+        "top": "storagedrawersunlimited:blocks/pvj/drawers_pine_side_h",
+        "front": "storagedrawersunlimited:blocks/pvj/drawers_pine_front_4",
+        "back": "storagedrawersunlimited:blocks/pvj/drawers_pine_side",
+        "side": "storagedrawersunlimited:blocks/pvj/drawers_pine_side_v",
+        "trim": "storagedrawersunlimited:blocks/pvj/drawers_pine_trim"
+    }
+}

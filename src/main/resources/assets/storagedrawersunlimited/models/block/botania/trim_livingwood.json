@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "storagedrawersunlimited:blocks/botania/drawers_livingwood_side"
+    }
+}
