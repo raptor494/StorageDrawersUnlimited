@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X/X",
+        "/X/",
+        "X/X"
+    ],
+    "key": {
+        "/": { "tag": "forge:rods/wooden" },
+        "X": { "item": "blue_skies:lunar_planks" }
+    },
+    "result": { "item": "storagedrawersunlimited:blue_skies_lunar_trim", "count": 4 }
+}

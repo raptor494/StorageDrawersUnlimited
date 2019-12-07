@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "storagedrawersunlimited:blocks/traverse/drawers_fir_side"
-    }
-}

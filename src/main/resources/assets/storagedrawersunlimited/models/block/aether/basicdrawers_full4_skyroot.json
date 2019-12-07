@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/aether/drawers_skyroot_side",
-        "front": "storagedrawersunlimited:blocks/aether/drawers_skyroot_front_4",
-        "side": "storagedrawersunlimited:blocks/aether/drawers_skyroot_side",
-        "trim": "storagedrawersunlimited:blocks/aether/drawers_skyroot_trim"
-    }
-}

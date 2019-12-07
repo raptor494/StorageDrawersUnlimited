@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/full_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/quark/drawers_thatch_side",
+        "front": "storagedrawersunlimited:block/quark/drawers_thatch_front_1",
+        "side": "storagedrawersunlimited:block/quark/drawers_thatch_side",
+        "trim": "storagedrawersunlimited:block/quark/drawers_thatch_trim"
+    }
+}

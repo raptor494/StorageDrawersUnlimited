@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X/X",
+        "/X/",
+        "X/X"
+    ],
+    "key": {
+        "/": { "tag": "forge:rods/wooden" },
+        "X": { "item": "quark:thatch_planks" }
+    },
+    "result": { "item": "storagedrawersunlimited:quark_thatch_trim", "count": 4 }
+}

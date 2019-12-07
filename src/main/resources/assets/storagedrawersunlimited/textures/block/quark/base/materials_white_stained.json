@@ -1,0 +1,11 @@
+{
+    "name": "White Stained",
+    "planks": [
+        "white_stained_planks",
+        "goodnightsleep:white_plank"
+    ],
+    "slabs": [
+        "white_stained_slab",
+        "goodnightsleep:white_slab"
+    ]
+}

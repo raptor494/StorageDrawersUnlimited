@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/natura/drawers_darkwood_side",
-        "front": "storagedrawersunlimited:blocks/natura/drawers_darkwood_front_1",
-        "side": "storagedrawersunlimited:blocks/natura/drawers_darkwood_side",
-        "trim": "storagedrawersunlimited:blocks/natura/drawers_darkwood_trim"
-    }
-}

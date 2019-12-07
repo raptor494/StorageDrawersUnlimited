@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/glacidus/drawers_underground_wood_side",
-        "front": "storagedrawersunlimited:blocks/glacidus/drawers_underground_wood_front_4",
-        "side": "storagedrawersunlimited:blocks/glacidus/drawers_underground_wood_side",
-        "trim": "storagedrawersunlimited:blocks/glacidus/drawers_underground_wood_trim"
-    }
-}

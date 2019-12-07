@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/full_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/blue_skies/drawers_maple_side",
+        "front": "storagedrawersunlimited:block/blue_skies/drawers_maple_front_4",
+        "side": "storagedrawersunlimited:block/blue_skies/drawers_maple_side",
+        "trim": "storagedrawersunlimited:block/blue_skies/drawers_maple_trim"
+    }
+}

@@ -1,6 +1,6 @@
 package com.raptor.sdu.type;
 
-import static com.raptor.sdu.type.DrawerMaterial.emptyIterator;
+import static com.raptor.sdu.type.EmptyIterator.emptyIterator;
 
 import java.util.Iterator;
 

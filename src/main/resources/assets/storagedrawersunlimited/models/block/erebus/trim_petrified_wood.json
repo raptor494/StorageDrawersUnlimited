@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "storagedrawersunlimited:blocks/erebus/drawers_petrified_wood_side"
-    }
-}

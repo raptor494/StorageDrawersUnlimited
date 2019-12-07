@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/full_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/natura/drawers_bloodwood_side",
+        "front": "storagedrawersunlimited:block/natura/drawers_bloodwood_front_4",
+        "side": "storagedrawersunlimited:block/natura/drawers_bloodwood_side",
+        "trim": "storagedrawersunlimited:block/natura/drawers_bloodwood_trim"
+    }
+}

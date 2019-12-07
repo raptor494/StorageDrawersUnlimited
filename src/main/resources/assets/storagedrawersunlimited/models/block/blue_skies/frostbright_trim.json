@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "storagedrawersunlimited:block/blue_skies/drawers_frostbright_side"
+    }
+}

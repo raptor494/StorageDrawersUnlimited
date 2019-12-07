@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/full_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/glacidus/drawers_underground_side",
+        "front": "storagedrawersunlimited:block/glacidus/drawers_underground_front_2",
+        "side": "storagedrawersunlimited:block/glacidus/drawers_underground_side",
+        "trim": "storagedrawersunlimited:block/glacidus/drawers_underground_trim"
+    }
+}

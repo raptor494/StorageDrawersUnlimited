@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X/X",
+        "/X/",
+        "X/X"
+    ],
+    "key": {
+        "/": { "tag": "forge:rods/wooden" },
+        "X": { "item": "quark:cyan_stained_planks" }
+    },
+    "result": { "item": "storagedrawersunlimited:quark_cyan_stained_trim", "count": 4 }
+}

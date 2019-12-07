@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "storagedrawersunlimited:blocks/blue_skies/drawers_starlit_side"
-    }
-}

@@ -1,0 +1,11 @@
+{
+    "name": "Dead",
+    "planks": [
+        "dead_plank",
+        "biomesoplenty:dead_planks"
+    ],
+    "slabs": [
+        "dead_slab",
+        "biomesoplenty:dead_slab"
+    ]
+}

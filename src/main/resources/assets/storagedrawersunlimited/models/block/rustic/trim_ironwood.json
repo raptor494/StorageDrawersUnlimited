@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "storagedrawersunlimited:blocks/rustic/drawers_ironwood_side"
-    }
-}

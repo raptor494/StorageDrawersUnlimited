@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/tropicraft/drawers_bamboo_side",
-        "front": "storagedrawersunlimited:blocks/tropicraft/drawers_bamboo_front_1",
-        "side": "storagedrawersunlimited:blocks/tropicraft/drawers_bamboo_side",
-        "trim": "storagedrawersunlimited:blocks/tropicraft/drawers_bamboo_trim"
-    }
-}

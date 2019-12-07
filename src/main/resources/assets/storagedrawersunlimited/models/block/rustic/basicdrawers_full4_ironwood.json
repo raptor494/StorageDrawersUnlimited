@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/rustic/drawers_ironwood_side",
-        "front": "storagedrawersunlimited:blocks/rustic/drawers_ironwood_front_4",
-        "side": "storagedrawersunlimited:blocks/rustic/drawers_ironwood_side",
-        "trim": "storagedrawersunlimited:blocks/rustic/drawers_ironwood_trim"
-    }
-}

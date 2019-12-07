@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/plants2/drawers_blaze_side",
-        "front": "storagedrawersunlimited:blocks/plants2/drawers_blaze_front_1",
-        "side": "storagedrawersunlimited:blocks/plants2/drawers_blaze_side",
-        "trim": "storagedrawersunlimited:blocks/plants2/drawers_blaze_trim"
-    }
-}

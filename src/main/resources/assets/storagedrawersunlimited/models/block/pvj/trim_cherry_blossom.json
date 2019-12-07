@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "storagedrawersunlimited:blocks/pvj/drawers_cherry_blossom_side"
-    }
-}

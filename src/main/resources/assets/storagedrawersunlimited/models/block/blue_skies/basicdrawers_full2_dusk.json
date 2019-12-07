@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/blue_skies/drawers_dusk_side",
-        "front": "storagedrawersunlimited:blocks/blue_skies/drawers_dusk_front_2",
-        "side": "storagedrawersunlimited:blocks/blue_skies/drawers_dusk_side",
-        "trim": "storagedrawersunlimited:blocks/blue_skies/drawers_dusk_trim"
-    }
-}

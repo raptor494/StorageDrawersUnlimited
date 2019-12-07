@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "storagedrawersunlimited:blocks/abyssalcraft/drawers_darklands_oak_wood_side"
-    }
-}

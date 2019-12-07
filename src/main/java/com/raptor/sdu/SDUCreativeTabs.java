@@ -2,43 +2,43 @@ package com.raptor.sdu;
 
 import static com.raptor.sdu.type.Mods.ENABLED_MODS;
 
-import com.jaquadro.minecraft.storagedrawers.api.storage.EnumBasicDrawer;
-import com.jaquadro.minecraft.storagedrawers.core.ModCreativeTabs;
+import com.jaquadro.minecraft.storagedrawers.core.ModItemGroup;
 import com.raptor.sdu.type.DrawerMaterial;
-import com.raptor.sdu.type.Mod;
+import com.raptor.sdu.type.SupportedMod;
 
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class SDUCreativeTabs {
 
-	public static final CreativeTabs TAB = new CreativeTabs(SDUnlimited.MODID) {
-		
+	public static final ItemGroup TAB = new ItemGroup(SDUnlimited.MODID) {	
 		{
 			setNoTitle();
 			setBackgroundImageName("item_search.png");
 		}
 		
 		@Override
-        @SideOnly(Side.CLIENT)
+        @OnlyIn(Dist.CLIENT)
 		public ItemStack createIcon() {
-			for(Mod mod : ENABLED_MODS) {
+			for(SupportedMod mod : ENABLED_MODS) {
 				DrawerMaterial material = mod.getDefaultMaterial();
 				if(material != null)
-					return new ItemStack(material.getDrawerItem(), 1, EnumBasicDrawer.FULL1.getMetadata());
+					return new ItemStack(material.item_drawers_full_1, 1);
+					//return new ItemStack(material.getDrawerItem(), 1, EnumBasicDrawer.FULL1.getMetadata());
 			}
-			return ModCreativeTabs.tabStorageDrawers.getIcon();
+			return ModItemGroup.STORAGE_DRAWERS.getIcon();
 		}
 		
 		@Override
-		public void displayAllRelevantItems(NonNullList<ItemStack> items) {
-			for(Mod mod : ENABLED_MODS) {
-				for(DrawerMaterial material : mod) {
-					material.getDrawerItem().getSubItems(this, items);
-					material.getTrimItem().getSubItems(this, items);
+		@OnlyIn(Dist.CLIENT)
+		public void fill(NonNullList<ItemStack> items) {
+			for(SupportedMod mod : ENABLED_MODS) {
+				for(Item item : mod.getItemsIterable()) {
+					item.fillItemGroup(this, items);
 				}
 			}
 		}

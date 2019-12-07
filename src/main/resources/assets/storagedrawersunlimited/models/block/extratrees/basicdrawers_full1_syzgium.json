@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/extratrees/drawers_syzgium_side",
-        "front": "storagedrawersunlimited:blocks/extratrees/drawers_syzgium_front_1",
-        "side": "storagedrawersunlimited:blocks/extratrees/drawers_syzgium_side",
-        "trim": "storagedrawersunlimited:blocks/extratrees/drawers_syzgium_trim"
-    }
-}

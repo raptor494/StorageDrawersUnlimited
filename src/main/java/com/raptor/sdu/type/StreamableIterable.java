@@ -7,16 +7,19 @@ import java.util.stream.StreamSupport;
 
 public interface StreamableIterable<T> extends Iterable<T> {
 	
-	default Stream<T> stream() {
-		return StreamSupport.stream(this.spliterator(), false);
-	}
+	Stream<T> stream();
 	
 	default Stream<T> parallelStream() {
-		return StreamSupport.stream(this.spliterator(), true);
+		return stream().parallel();
+	}
+	
+	@Override
+	default Iterator<T> iterator() {
+		return stream().iterator();
 	}
 	
 	static <T> StreamableIterable<T> wrap(Iterable<T> iterable) {
-		return iterable instanceof StreamableIterable? (StreamableIterable<T>)iterable : iterable::iterator;
+		return iterable instanceof StreamableIterable? (StreamableIterable<T>)iterable : () -> StreamSupport.stream(iterable.spliterator(), false);
 	}
 	
 	static <T> StreamableIterable<T> wrap(Collection<T> c) {

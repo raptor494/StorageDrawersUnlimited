@@ -1,0 +1,10 @@
+{
+    "parent": "storagedrawers:block/half_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/biomesoplenty/drawers_palm_side_h",
+        "front": "storagedrawersunlimited:block/biomesoplenty/drawers_palm_front_4",
+        "back": "storagedrawersunlimited:block/biomesoplenty/drawers_palm_side",
+        "side": "storagedrawersunlimited:block/biomesoplenty/drawers_palm_side_v",
+        "trim": "storagedrawersunlimited:block/biomesoplenty/drawers_palm_trim"
+    }
+}

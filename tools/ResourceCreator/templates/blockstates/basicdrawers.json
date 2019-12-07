@@ -1,24 +1,8 @@
 {
     "variants": {
-        "block=full1,facing=north": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full1_${material}" },
-        "block=full1,facing=south": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full1_${material}", "y": 180 },
-        "block=full1,facing=west": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full1_${material}", "y": 270 },
-        "block=full1,facing=east": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full1_${material}", "y": 90 },
-        "block=full2,facing=north": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full2_${material}" },
-        "block=full2,facing=south": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full2_${material}", "y": 180 },
-        "block=full2,facing=west": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full2_${material}", "y": 270 },
-        "block=full2,facing=east": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full2_${material}", "y": 90 },
-        "block=full4,facing=north": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full4_${material}" },
-        "block=full4,facing=south": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full4_${material}", "y": 180 },
-        "block=full4,facing=west": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full4_${material}", "y": 270 },
-        "block=full4,facing=east": { "model": "storagedrawersunlimited:${modid}/basicdrawers_full4_${material}", "y": 90 },
-        "block=half2,facing=north": { "model": "storagedrawersunlimited:${modid}/basicdrawers_half2_${material}" },
-        "block=half2,facing=south": { "model": "storagedrawersunlimited:${modid}/basicdrawers_half2_${material}", "y": 180 },
-        "block=half2,facing=west": { "model": "storagedrawersunlimited:${modid}/basicdrawers_half2_${material}", "y": 270 },
-        "block=half2,facing=east": { "model": "storagedrawersunlimited:${modid}/basicdrawers_half2_${material}", "y": 90 },
-        "block=half4,facing=north": { "model": "storagedrawersunlimited:${modid}/basicdrawers_half4_${material}" },
-        "block=half4,facing=south": { "model": "storagedrawersunlimited:${modid}/basicdrawers_half4_${material}", "y": 180 },
-        "block=half4,facing=west": { "model": "storagedrawersunlimited:${modid}/basicdrawers_half4_${material}", "y": 270 },
-        "block=half4,facing=east": { "model": "storagedrawersunlimited:${modid}/basicdrawers_half4_${material}", "y": 90 }
+        "facing=north": { "model": "storagedrawersunlimited:block/${modid}/${model}" },
+        "facing=south": { "model": "storagedrawersunlimited:block/${modid}/${model}", "y": 180 },
+        "facing=west": { "model": "storagedrawersunlimited:block/${modid}/${model}", "y": 270 },
+        "facing=east": { "model": "storagedrawersunlimited:block/${modid}/${model}", "y": 90 }
     }
 }

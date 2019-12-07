@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/full_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/goodnightsleep/drawers_dream_side",
+        "front": "storagedrawersunlimited:block/goodnightsleep/drawers_dream_front_1",
+        "side": "storagedrawersunlimited:block/goodnightsleep/drawers_dream_side",
+        "trim": "storagedrawersunlimited:block/goodnightsleep/drawers_dream_trim"
+    }
+}

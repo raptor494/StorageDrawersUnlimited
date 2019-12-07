@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/erebus/drawers_rotten_wood_side",
-        "front": "storagedrawersunlimited:blocks/erebus/drawers_rotten_wood_front_2",
-        "side": "storagedrawersunlimited:blocks/erebus/drawers_rotten_wood_side",
-        "trim": "storagedrawersunlimited:blocks/erebus/drawers_rotten_wood_trim"
-    }
-}

@@ -2,56 +2,47 @@ package com.raptor.sdu;
 
 import java.io.File;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.raptor.sdu.proxy.ClientProxy;
 import com.raptor.sdu.proxy.CommonProxy;
 
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLPaths;
 
-@Mod(modid = SDUnlimited.MODID, version = SDUnlimited.VERSION, name = "Storage Drawers Unlimited",
-		useMetadata = true)
+@Mod(SDUnlimited.MODID)
 public class SDUnlimited {
 	public static final String MODID = "storagedrawersunlimited";
-	public static final String VERSION = "${version}";
 	
-	@Instance(SDUnlimited.MODID)
-	public static SDUnlimited instance;
+	public static final CommonProxy proxy = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 	
-	@SidedProxy(clientSide = "com.raptor.sdu.proxy.ClientProxy", serverSide = "com.raptor.sdu.proxy.CommonProxy")
-	public static CommonProxy proxy;
+	public static final Logger logger = LogManager.getLogger(MODID);
 	
-	public static Logger logger;
+	private static File configFolder;
+	public static File getConfigFolder() {
+		if(configFolder == null) {
+			configFolder = FMLPaths.CONFIGDIR.get().resolve("storagedrawersunlimited").toFile();
+		}
+		return configFolder;
+	}
 	
-	public static File configFolder; 
+	public SDUnlimited() {		
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SDUConfig.spec);
+		FMLJavaModLoadingContext.get().getModEventBus().register(this);
+	}
 	
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		logger = event.getModLog();
-		configFolder = new File(event.getModConfigurationDirectory(), "storagedrawersunlimited");
-		if(!configFolder.isDirectory())
+	@SubscribeEvent
+	public void setup(FMLCommonSetupEvent event) {
+		if(!getConfigFolder().exists() || !configFolder.isDirectory())
 			configFolder.mkdirs();
-		proxy.preInit(event);
+		proxy.setup(event);
 	}
 	
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
-		proxy.init(event);
-	}
-	
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		proxy.postInit(event);
-	}
-	
-	@EventHandler
-	public void serverInit(FMLServerStartingEvent event) {
-		proxy.serverInit(event);
-	}
 }

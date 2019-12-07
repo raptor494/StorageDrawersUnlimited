@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X/X",
+        "/X/",
+        "X/X"
+    ],
+    "key": {
+        "/": { "tag": "forge:rods/wooden" },
+        "X": { "item": "biomesoplenty:hellbark_planks" }
+    },
+    "result": { "item": "storagedrawersunlimited:biomesoplenty_hellbark_trim", "count": 4 }
+}

@@ -1,0 +1,10 @@
+{
+    "parent": "storagedrawers:block/half_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/blue_skies/drawers_bluebright_side_h",
+        "front": "storagedrawersunlimited:block/blue_skies/drawers_bluebright_front_1",
+        "back": "storagedrawersunlimited:block/blue_skies/drawers_bluebright_side",
+        "side": "storagedrawersunlimited:block/blue_skies/drawers_bluebright_side_v",
+        "trim": "storagedrawersunlimited:block/blue_skies/drawers_bluebright_trim"
+    }
+}

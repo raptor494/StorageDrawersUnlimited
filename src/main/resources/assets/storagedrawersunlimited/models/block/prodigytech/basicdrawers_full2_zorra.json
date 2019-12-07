@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/prodigytech/drawers_zorra_side",
-        "front": "storagedrawersunlimited:blocks/prodigytech/drawers_zorra_front_2",
-        "side": "storagedrawersunlimited:blocks/prodigytech/drawers_zorra_side",
-        "trim": "storagedrawersunlimited:blocks/prodigytech/drawers_zorra_trim"
-    }
-}

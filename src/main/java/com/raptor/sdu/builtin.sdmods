@@ -1,823 +1,264 @@
-aether, aether_legacy:
-	skyroot:
-		planks	skyroot_planks
-		slab	skyroot_slab
-		planks	aether_legacy:skyroot_plank
-		slab	aether_legacy:skyroot_slab
-	greatroot:
-		planks	dark_skyroot_planks
-		slab	greatroot_slab
-	wisproot:
-		planks	light_skyroot_planks
-		slab	wisproot_slab
-	therawood:
-		planks	therawood_planks
-		slab	therawood_slab
-		
 natura: !storagedrawersextras
-	eucalyptus:
-		planks	overworld_planks 5
-		slab	overworld_slab2 0
-	sakura:
-		planks	overworld_planks 7
-		slab	overworld_slab2 2
-	ghostwood:
-		planks	nether_planks 0
-		slab	nether_slab 0
-	redwood:
-		planks	overworld_planks 8
-		slab	overworld_slab2 3
-	bloodwood:
-		planks	nether_planks 8
-		slab	nether_slab 1
-		planks	goodnightsleep:blood_plank
-		slab	goodnightsleep:blood_slab
-	hopseed:
-		planks	overworld_planks 6
-		slab	overworld_slab2 1
-	maple:
-		planks	overworld_planks 0
-		slab	overworld_slab 0
-	silverbell:
-		planks	overworld_planks 1
-		slab	overworld_slab 1
-	purpleheart:
-		planks	overworld_planks 2
-		slab	overworld_slab 2
-	tigerwood:
-		planks	overworld_planks 3
-		slab	overworld_slab 3
-	willow:
-		planks	overworld_planks 4
-		slab	overworld_slab 4
-	darkwood:
-		planks	nether_planks 2
-		slab	nether_slab 2
-	fusewood:
-		planks	nether_planks 3
-		slab	nether_slab 3
-		
+	bloodwood
+# 	eucalyptus
+# 	sakura
+# 	ghostwood
+# 	redwood
+# 	hopseed
+# 	maple
+# 	silverbell
+# 	purpleheart
+# 	tigerwood
+# 	willow
+# 	darkwood
+# 	fusewood
+
 biomesoplenty: !storagedrawersextras
-	sacredoak:
-		planks	planks_0 0
-		slab	wood_slab_0 0
-	cherry:
-		planks	planks_0 1
-		slab	wood_slab_0 1
-	dark:
-		planks	planks_0 2
-		slab	wood_slab_0 2
-	fir:
-		planks	planks_0 3
-		slab	wood_slab_0 3
-	ethereal:
-		planks	planks_0 4
-		slab	wood_slab_0 4
-	magic:
-		planks	planks_0 5
-		slab	wood_slab_0 5
-	mangrove:
-		planks	planks_0 6
-		slab	wood_slab_0 6
-	palm:
-		planks	planks_0 7
-		slab	wood_slab_0 7
-	redwood:
-		planks	planks_0 8
-		slab	wood_slab_1 0
-	willow:
-		planks	planks_0 9
-		slab	wood_slab_1 1
-	pine:
-		planks	planks_0 10
-		slab	wood_slab_1 2
-	hellbark:
-		planks	planks_0 11
-		slab	wood_slab_1 3
-	jacaranda:
-		planks	planks_0 12
-		slab	wood_slab_1 4
-	ebony:
-		planks	planks_0 14
-		slab	wood_slab_1 6
-		planks	forestry:planks.0 9
-		planks	forestry:planks.fireproof.0 9
-		slab	forestry:slabs.1 1
-		slab	forestry:slabs.fireproof.1 1
-	eucalyptus:
-		planks	planks_0 15
-		slab	wood_slab_1 7
-	
-forestry: !storagedrawersextras
-	larch:
-		planks	planks.0 0
-		planks	planks.fireproof.0 0
-		slab	slabs.0 0
-		slab	slabs.fireproof.0 0
-	teak:
-		planks	planks.0 1
-		planks	planks.fireproof.0 1
-		slab	slabs.0 1
-		slab	slabs.fireproof.0 1
-	acacia:
-		planks	planks.0 2
-		planks	planks.fireproof.0 2
-		slab	slabs.0 2
-		slab	slabs.fireproof.0 2
-	lime:
-		planks	planks.0 3
-		planks	planks.fireproof.0 3
-		slab	slabs.0 3
-		slab	slabs.fireproof.0 3
-	chestnut:
-		planks	planks.0 4
-		planks	planks.fireproof.0 4
-		slab	slabs.0 4
-		slab	slabs.fireproof.0 4
-	wenge:
-		planks	planks.0 5
-		planks	planks.fireproof.0 5
-		slab	slabs.0 5
-		slab	slabs.fireproof.0 5
-	baobab:
-		planks	planks.0 6
-		planks	planks.fireproof.0 6
-		slab	slabs.0 6
-		slab	slabs.fireproof.0 6
-	sequoia:
-		planks	planks.0 7
-		planks	planks.fireproof.0 7
-		slab	slabs.0 7
-		slab	slabs.fireproof.0 7
-	kapok:
-		planks	planks.0 8
-		planks	planks.fireproof.0 8
-		slab	slabs.1 0
-		slab	slabs.fireproof.1 0
-	@biomesoplenty:ebony
-	mahogany:
-		planks	planks.0 10
-		planks	planks.fireproof.0 10
-		slab	slabs.1 2
-		slab	slabs.fireproof.1 2
-	balsa:
-		planks	planks.0 11
-		planks	planks.fireproof.0 11
-		slab	slabs.1 3
-		slab	slabs.fireproof.1 3
-	willow:
-		planks	planks.0 12
-		planks	planks.fireproof.0 12
-		slab	slabs.1 4
-		slab	slabs.fireproof.1 4
-	walnut:
-		planks	planks.0 13
-		planks	planks.fireproof.0 13
-		slab	slabs.1 5
-		slab	slabs.fireproof.1 5
-	greenheart:
-		planks	planks.0 14
-		planks	planks.fireproof.0 14
-		slab	slabs.1 6
-		slab	slabs.fireproof.1 6
-	cherry:
-		planks	planks.0 15
-		planks	planks.fireproof.0 15
-		slab	slabs.1 7
-		slab	slabs.fireproof.1 7
-	mahoe:
-		planks	planks.1 0
-		planks	planks.fireproof.1 0
-		slab	slabs.2 0
-		slab	slabs.fireproof.2 0
-	poplar:
-		planks	planks.1 1
-		planks	planks.fireproof.1 1
-		slab	slabs.2 1
-		slab	slabs.fireproof.2 1
-	palm:
-		planks	planks.1 2
-		planks	planks.fireproof.1 2
-		slab	slabs.2 2
-		slab	slabs.fireproof.2 2
-	papaya:
-		planks	planks.1 3
-		planks	planks.fireproof.1 3
-		slab	slabs.2 3
-		slab	slabs.fireproof.2 3
-	pine:
-		planks	planks.1 4
-		planks	planks.fireproof.1 4
-		slab	slabs.2 4
-		slab	slabs.fireproof.2 4
-	plum:
-		planks	planks.1 5
-		planks	planks.fireproof.1 5
-		slab	slabs.2 5
-		slab	slabs.fireproof.2 5
-	maple:
-		planks	planks.1 6
-		planks	planks.fireproof.1 6
-		slab	slabs.2 6
-		slab	slabs.fireproof.2 6
-	citrus:
-		planks	planks.1 7
-		planks	planks.fireproof.1 7
-		slab	slabs.2 7
-		slab	slabs.fireproof.2 7
-	giganteum:
-		planks	planks.1 8
-		planks	planks.fireproof.1 8
-		slab	slabs.3 0
-		slab	slabs.fireproof.3 0
-	ipe:
-		planks	planks.1 9
-		planks	planks.fireproof.1 9
-		slab	slabs.3 1
-		slab	slabs.fireproof.3 1
-	padauk:
-		planks	planks.1 10
-		planks	planks.fireproof.1 10
-		slab	slabs.3 2
-		slab	slabs.fireproof.3 2
-	cocobolo:
-		planks	planks.1 11
-		planks	planks.fireproof.1 11
-		slab	slabs.3 3
-		slab	slabs.fireproof.3 3
-	zebrawood:
-		planks	planks.1 12
-		planks	planks.fireproof.1 12
-		slab	slabs.3 4
-		slab	slabs.fireproof.3 4
-		
-immersiveengineering: !storagedrawersextras
-	treated_wood:
-		planks	treated_wood
-		slab	treated_wood_slab
+	dead
+	cherry
+	umbran
+	fir
+	ethereal
+	magic
+	mangrove
+	palm
+	redwood
+	willow
+	pine
+	hellbark
+	jacaranda
+	ebony
+	eucalyptus
 
-thaumcraft:
-	greatwood:
-		planks	plank_greatwood
-		slab	slab_greatwood
-	silverwood:
-		planks	plank_silverwood
-		slab	slab_silverwood
-		
-rustic:
-	olive:
-		planks	rustic:planks 0
-		slab	olive_slab_item
-	ironwood:
-		planks	rustic:planks 1
-		slab	ironwood_slab_item
-		
-botania:
-	livingwood:
-		planks	livingwood
-		slab	livingwood0slab
-		slab	livingwood1slab
-	dreamwood:
-		planks	dreamwood
-		slab	dreamwood0slab
-		slab	dreamwood1slab
-	shimmerwood:
-		planks	shimmerwoodplanks
-		slab	shimmerwoodplanks0slab
-		
-blue_skies:
-	bluebright:
-		planks	bluebright_planks
-		slab	bluebright_slab
-	starlit:
-		planks	starlit_planks
-		slab	starlit_slab
-	frostbright:
-		planks	frostbright_planks
-		slab	frostbright_slab
-	dusk:
-		planks	dusk_planks
-		slab	dusk_slab
-	lunar:
-		planks	lunar_planks
-		slab	lunar_slab
-	cherry:
-		planks	cherry_planks
-		slab	cherry_slab
-	maple:
-		planks	maple_planks
-		slab	maple_slab
-		
-pvj: # Project: Vibrant Journeys
-	aspen:
-		planks	planks_aspen
-		slab	aspen_slab
-	baobab:
-		planks	planks_baobab
-		slab	baobab_slab
-	cherry_blossom:
-		planks	planks_cherry_blossom
-		slab 	cherry_blossom_slab
-	cottonwood:
-		planks	planks_cottonwood
-		slab	cottonwood_slab
-	fir:
-		planks	planks_fir
-		slab	fir_slab
-	jacaranda:
-		planks	planks_jacaranda
-		slab	jacaranda_slab
-	juniper:
-		planks	planks_juniper
-		slab	juniper_slab
-	mangrove:
-		planks	planks_mangrove
-		slab	mangrove_slab
-	palm:
-		planks	planks_palm
-		slab	palm_slab
-	pine:
-		planks	planks_pine
-		slab	pine_slab
-	redwood:
-		planks	planks_redwood
-		slab	redwood_slab
-	willow:
-		planks	planks_willow
-		slab	willow_slab
-		
-traverse:
-	fir:
-		planks	fir_planks
-		slab	fir_slab
-		
-byg: # Oh the Biomes You'll Go
-	# commented out b/c no slabs
-#	ancient_birch:
-#		planks	ancientbirchplanks
-#		slab	ancientbirchslab
-	baobab:
-		planks	baobabplanks
-		slab	baobabslab
-	cherry:
-		planks	cherryplanks
-		slab	cherryslab
-	cika:
-		planks	cikaplanks
-		slab	cikaslab
-	# commented out b/c no slabs
-#	enchanted_wood:
-#		planks	enchantedplanks
-#		slab	enchantedslab
-	# commented out b/c no slabs
-#	golden_birch:
-#		planks	goldenbirchplanks
-#		slab	goldenbirchslab
-	great_oak:
-		planks	greatoakplanks
-		slab	greatoakslab
-	hollow_oak:
-		planks	hollowoakplanks
-		slab	hollowoakslab
-	holly:
-		planks	hollyplanks
-		slab	hollyslab
-	jacaranda:
-		planks	jacarandaplanks
-		slab	jacarandaslab
-	mangrove:
-		planks	mangroveplanks
-		slab	mangroveslab
-	maple:
-		planks	mapleplanks
-		slab	mapleslab
-	# commented out b/c no slabs
-#	frozen_oak:
-#		planks	frozenoakplanks
-#		slab	frozenoakslab
-	pine:
-		planks	pineplanks
-		slab	pineslab
-	rainbow_eucalyptus:
-		planks	rainboweucalyptusplanks
-		slab	rainboweucalyptusslab
-	redwood:
-		planks	redwoodplanks
-		slab	redwoodslab
-	skyris:
-		planks	skyrisplanks
-		slab	skyrisslab
-	spectral_wood:
-		planks	spectralplanks
-		slab	spectralslab
-	willow:
-		planks	willowplanks
-		slab	willowslab
-	witch_hazel:
-		planks	witchhazelplanks
-		slab	witchhazelslab
-	zelkova:
-		planks	zelkovaplanks
-		slab	zelkovaslab
-		
 quark:
-	white_stained_wood:
-		planks	stained_planks 0
-		slab	stained_planks_white_slab
-	orange_stained_wood:
-		planks	stained_planks 1
-		slab	stained_planks_orange_slab
-	magenta_stained_wood:
-		planks	stained_planks 2
-		slab	stained_planks_magenta_slab
-	light_blue_stained_wood:
-		planks	stained_planks 3
-		slab	stained_planks_light_blue_slab
-	yellow_stained_wood:
-		planks	stained_planks 4
-		slab	stained_planks_yellow_slab
-	lime_stained_wood:
-		planks	stained_planks 5
-		slab	stained_planks_lime_slab
-	pink_stained_wood:
-		planks	stained_planks 6
-		slab	stained_planks_pink_slab
-	gray_stained_wood:
-		planks	stained_planks 7
-		slab	stained_planks_gray_slab
-	light_gray_stained_wood:
-		planks	stained_planks 8
-		slab	stained_planks_silver_slab
-	cyan_stained_wood:
-		planks	stained_planks 9
-		slab	stained_planks_cyan_slab
-	purple_stained_wood:
-		planks	stained_planks 10
-		slab	stained_planks_purple_slab
-	blue_stained_wood:
-		planks	stained_planks 11
-		slab	stained_planks_blue_slab
-	brown_stained_wood:
-		planks	stained_planks 12
-		slab	stained_planks_brown_slab
-	green_stained_wood:
-		planks	stained_planks 13
-		slab	stained_planks_green_slab
-	red_stained_wood:
-		planks	stained_planks 14
-		slab	stained_planks_red_slab
-	black_stained_wood:
-		planks	stained_planks 15
-		slab	stained_planks_black_slab
+	white_stained
+	orange_stained
+	magenta_stained
+	light_blue_stained
+	yellow_stained
+	lime_stained
+	pink_stained
+	gray_stained
+	light_gray_stained
+	cyan_stained
+	purple_stained
+	blue_stained
+	brown_stained
+	green_stained
+	red_stained
+	black_stained
 	thatch: grassy # added thach b/c I added thatch for betweenlands, but quark's thatch is differently colored
-		planks	thatch
-		slab	thatch_slab
-	
-integrateddynamics:
-	menril:
-		planks	menril_planks
-		slab	menril_planks_stairs # stairs b/c no menril slab for whatever reason
-		
-thebetweenlands:
-	weedwood:
-		planks	weedwood_planks
-		slab	weedwood_plank_slab
-	rubber_tree:
-		planks	rubber_tree_planks
-		slab	rubber_tree_plank_slab
-	giant_root:
-		planks	giant_root_planks
-		slab	giant_root_plank_slab
-	hearthgrove:
-		planks	hearthgrove_planks
-		slab	hearthgrove_plank_slab
-	nibbletwig:
-		planks	nibbletwig_planks
-		slab	nibbletwig_plank_slab
-	thatch: grassy
-		planks	thatch
-		slab	thatch_slab
-		planks	tropicraft:bundle 0 # Tropicraft thatch
-		slab	tropicraft:slab 1 # Tropicraft thatch slab
-		
-tropicraft:
-	bamboo:
-		planks	tropicraft:bundle 1
-		slab	tropicraft:slab 0
-		planks	growthcraft_bamboo:bamboo_plank
-		slab	growthcraft_bamboo:bamboo_slab_half
-	palm:
-		planks	tropicraft:plank 1
-		slab	tropicraft:slab 3
-	mahogany:
-		planks	tropicraft:plank 0
-		slab	tropicraft:slab 4
-	@thebetweenlands:thatch
-	
-glacidus:
-	underground_wood:
-		planks	underground_planks
-		slab	underground_slab
-		
-goodnightsleep:
-	dream_wood:
-		planks	dream_plank
-		slab	dream_slab
-	white_wood:
-		planks	white_plank
-		slab	white_slab
-	dead_wood:
-		planks	dead_plank
-		slab	dead_slab
-	@natura:bloodwood
-	
-growthcraft_bamboo: # Why Growthcraft is split up into several mods in the same jar, I will never know.
-	@tropicraft:bamboo
-	
-growthcraft_apples:
-	apple_wood:
-		planks	apple_planks
-		slab	apple_slab_half
-	
-atum: # Atum 2
-	palm:
-		planks	palm_planks
-		slab	palm_slab
-	deadwood:
-		planks	deadwood_planks
-		slab	deadwood_slab
-		
-naturesaura:
-	ancient_wood:
-		planks	ancient_planks
-		slab	ancient_slab
-		
-prodigytech:
-	zorra:
-		planks	zorra_planks
-		# no slabs
-	particle_board:
-		planks	particle_board
-		planks	particle_board_planks
-		# no slabs
-		
-erebus:
-	asper:
-		planks	erebus:planks 4
-		slab	slab_planks_asper
-	balsam:
-		planks	erebus:planks 6
-		slab	slab_planks_balsam
-	bamboo:
-		planks	erebus:planks 8
-		slab	slab_planks_bamboo
-	baobab:
-		planks	erebus:planks 0
-		slab	slab_planks_baobab
-	cypress:
-		planks	erebus:planks 5
-		slab	slab_planks_cypress
-	eucalyptus:
-		planks	erebus:planks 1
-		slab	slab_planks_eucalyptus
-	mahogany:
-		planks	erebus:planks 2
-		slab	slab_planks_mahogany
-	marshwood:
-		planks	erebus:planks 10
-		slab	slab_planks_marshwood
-	mossbark:
-		planks	erebus:planks 3
-		slab	slab_planks_mossbark
-	petrified_wood:
-		planks	planks_petrified_wood
-		slab	slab_planks_petrified_wood
-	rotten_wood:
-		planks	erebus:planks 9
-		slab	slab_planks_rotten
-	scorched_wood:
-		planks	erebus:planks 11
-		slab	slab_planks_scorched
-	varnished_wood:
-		planks	erebus:planks 12
-		slab	slab_planks_varnished
-	white_wood:
-		planks	erebus:planks 7
-		slab	slab_planks_white
-		
-abyssalcraft:
-	darklands_oak_wood:
-		planks	dltplank
-		slab	dltslab1
-	dreadlands_wood:
-		planks	dreadplanks
-		# no slab
-		
-extratrees: # Binnie's Extra Trees
-	apple:
-		planks	planks.0 0
-		planks	planks.fireproof.0 0
-		slab	slabs.0 0
-		slab	slabs.fireproof.0 0
-	fig:
-		planks	planks.0 1
-		planks	planks.fireproof.0 1
-		slab	slabs.0 1
-		slab	slabs.fireproof.0 1
-	butternut:
-		planks	planks.0 2
-		planks	planks.fireproof.0 2
-		slab	slabs.0 2
-		slab	slabs.fireproof.0 2
-	whitebeam:
-		planks	planks.0 3
-		planks	planks.fireproof.0 3
-		slab	slabs.0 3
-		slab	slabs.fireproof.0 3
-	rowan:
-		planks	planks.0 4
-		planks	planks.fireproof.0 4
-		slab	slabs.0 4
-		slab	slabs.fireproof.0 4
-	hemlock:
-		planks	planks.0 5
-		planks	planks.fireproof.0 5
-		slab	slabs.0 5
-		slab	slabs.fireproof.0 5
-	ash:
-		planks	planks.0 6
-		planks	planks.fireproof.0 6
-		slab	slabs.0 6
-		slab	slabs.fireproof.0 6
-	alder:
-		planks	planks.0 7
-		planks	planks.fireproof.0 7
-		slab	slabs.0 7
-		slab	slabs.fireproof.0 7
-	beech:
-		planks	planks.0 8
-		planks	planks.fireproof.0 8
-		slab	slabs.1 0
-		slab	slabs.fireproof.1 0
-	hawthorn:
-		planks	planks.0 9
-		planks	planks.fireproof.0 9
-		slab	slabs.1 1
-		slab	slabs.fireproof.1 1
-	banana:
-		planks	planks.0 10
-		planks	planks.fireproof.0 10
-		slab	slabs.1 2
-		slab	slabs.fireproof.1 2
-	yew:
-		planks	planks.0 11
-		planks	planks.fireproof.0 11
-		slab	slabs.1 3
-		slab	slabs.fireproof.1 3
-	cypress:
-		planks	planks.0 12
-		planks	planks.fireproof.0 12
-		slab	slabs.1 4
-		slab	slabs.fireproof.1 4
-	fir:
-		planks	planks.0 13
-		planks	planks.fireproof.0 13
-		slab	slabs.1 5
-		slab	slabs.fireproof.1 5
-	hazel:
-		planks	planks.0 14
-		planks	planks.fireproof.0 14
-		slab	slabs.1 6
-		slab	slabs.fireproof.1 6
-	hickory:
-		planks	planks.0 15
-		planks	planks.fireproof.0 15
-		slab	slabs.1 7
-		slab	slabs.fireproof.1 7
-	elm:
-		planks	planks.1 0
-		planks	planks.fireproof.1 0
-		slab	slabs.2 0
-		slab	slabs.fireproof.2 0
-	elder:
-		planks	planks.1 1
-		planks	planks.fireproof.1 1
-		slab	slabs.2 1
-		slab	slabs.fireproof.2 1
-	holly:
-		planks	planks.1 2
-		planks	planks.fireproof.1 2
-		slab	slabs.2 2
-		slab	slabs.fireproof.2 2
-	hornbeam:
-		planks	planks.1 3
-		planks	planks.fireproof.1 3
-		slab	slabs.2 3
-		slab	slabs.fireproof.2 3
-	cedar:
-		planks	planks.1 4
-		planks	planks.fireproof.1 4
-		slab	slabs.2 4
-		slab	slabs.fireproof.2 4
-	olive:
-		planks	planks.1 5
-		planks	planks.fireproof.1 5
-		slab	slabs.2 5
-		slab	slabs.fireproof.2 5
-	sweetgum:
-		planks	planks.1 6
-		planks	planks.fireproof.1 6
-		slab	slabs.2 6
-		slab	slabs.fireproof.2 6
-	locust_wood:
-		planks	planks.1 7
-		planks	planks.fireproof.1 7
-		slab	slabs.2 7
-		slab	slabs.fireproof.2 7
-	pear:
-		planks	planks.1 8
-		planks	planks.fireproof.1 8
-		slab	slabs.3 0
-		slab	slabs.fireproof.3 0
-	maclura:
-		planks	planks.1 9
-		planks	planks.fireproof.1 9
-		slab	slabs.3 1
-		slab	slabs.fireproof.3 1
-	brazilwood:
-		planks	planks.1 10
-		planks	planks.fireproof.1 10
-		slab	slabs.3 2
-		slab	slabs.fireproof.3 2
-	logwood:
-		planks	planks.1 11
-		planks	planks.fireproof.1 11
-		slab	slabs.3 3
-		slab	slabs.fireproof.3 3
-	rosewood:
-		planks	planks.1 12
-		planks	planks.fireproof.1 12
-		slab	slabs.3 4
-		slab	slabs.fireproof.3 4
-	purpleheart:
-		planks	planks.1 13
-		planks	planks.fireproof.1 13
-		slab	slabs.3 5
-		slab	slabs.fireproof.3 5
-	iroko:
-		planks	planks.1 14
-		planks	planks.fireproof.1 14
-		slab	slabs.3 6
-		slab	slabs.fireproof.3 6
-	gingko:
-		planks	planks.1 15
-		planks	planks.fireproof.1 15
-		slab	slabs.3 7
-		slab	slabs.fireproof.3 7
-	eucalyptus:
-		planks	planks.2 0
-		planks	planks.fireproof.2 0
-		slab	slabs.4 0
-		slab	slabs.fireproof.4 0
-	boxwood:
-		planks	planks.2 1
-		planks	planks.fireproof.2 1
-		slab	slabs.4 1
-		slab	slabs.fireproof.4 1
-	syzgium:
-		planks	planks.2 2
-		planks	planks.fireproof.2 2
-		slab	slabs.4 2
-		slab	slabs.fireproof.4 2
-	pink_ivory:
-		planks	planks.2 3
-		planks	planks.fireproof.2 3
-		slab	slabs.4 3
-		slab	slabs.fireproof.4 3
 
-plants2:
-	crystal:
-		planks	crystal_planks 0
-		slab	crystal_slab
-	dark_crystal:
-		planks	crystal_planks 1
-		slab	dark_crystal_slab
-	ash:
-		planks	plants2:planks 0
-		slab	ash_slab
-	blaze:
-		planks	plants2:planks 1
-		slab	blaze_slab
-	black_kauri:
-		planks	plants2:planks 2
-		slab	black_kauri_slab
-	brazil_pine:
-		planks	plants2:planks 3
-		slab	brazillian_pine_slab
-	incense_cedar:
-		planks	plants2:planks 4
-		slab	incense_cedar_slab
-	murray_pine:
-		planks	plants2:planks 5
-		slab	murray_pine_slab
+goodnightsleep:
+	dream
+	@quark:white_stained
+	@biomesoplenty:dead
+	@natura:bloodwood
+
+glacidus:
+	underground
+
+blue_skies:
+	bluebright
+	starlit
+	frostbright
+	dusk
+	lunar
+	@biomesoplenty:cherry
+	maple
+
+traverse:
+	@biomesoplenty:fir
+
+# aether, aether_legacy:
+# 	skyroot
+# 	greatroot
+# 	wisproot
+# 	therawood
+
+# forestry: !storagedrawersextras
+# 	larch
+# 	teak
+# 	acacia
+# 	lime
+# 	chestnut
+# 	wenge
+# 	baobab
+# 	sequoia
+# 	kapok
+# 	@biomesoplenty:ebony
+# 	mahogany
+# 	balsa
+# 	willow
+# 	walnut
+# 	greenheart
+# 	cherry
+# 	mahoe
+# 	poplar
+# 	palm
+# 	papaya
+# 	pine
+# 	plum
+# 	maple
+# 	citrus
+# 	giganteum
+# 	ipe
+# 	padauk
+# 	cocobolo
+# 	zebrawood
+		
+# immersiveengineering: !storagedrawersextras
+# 	treated_wood
+
+# thaumcraft:
+# 	greatwood
+# 	silverwood
+		
+# rustic:
+# 	olive
+# 	ironwood
+		
+# botania:
+# 	livingwood
+# 	dreamwood
+# 	shimmerwood
+		
+# pvj: # Project: Vibrant Journeys
+# 	aspen
+# 	baobab
+# 	cherry_blossom
+# 	cottonwood
+# 	fir
+# 	jacaranda
+# 	juniper
+# 	mangrove
+# 	palm
+# 	pine
+# 	redwood
+# 	willow
+		
+# byg: # Oh the Biomes You'll Go
+# 	ancient_birch
+# 	baobab
+# 	cherry
+# 	cika
+# 	enchanted_wood
+# 	golden_birch
+# 	great_oak
+# 	hollow_oak
+# 	holly
+# 	jacaranda
+# 	mangrove
+# 	maple
+# 	frozen_oak
+# 	pine
+# 	rainbow_eucalyptus
+# 	redwood
+# 	skyris
+# 	spectral_wood
+# 	willow
+# 	witch_hazel
+# 	zelkova
+	
+# integrateddynamics:
+# 	menril
+		
+# thebetweenlands:
+# 	weedwood
+# 	rubber_tree
+# 	giant_root
+# 	hearthgrove
+# 	nibbletwig
+# 	thatch: grassy
+		
+# tropicraft:
+# 	bamboo: bamboo
+# 	palm
+# 	mahogany
+# 	@thebetweenlands:thatch
+	
+# growthcraft_bamboo: # Why Growthcraft is split up into several mods in the same jar, I will never know.
+# 	@tropicraft:bamboo
+	
+# growthcraft_apples:
+# 	apple_wood
+	
+# atum: # Atum 2
+# 	palm
+# 	deadwood
+		
+# naturesaura:
+# 	ancient_wood
+		
+# prodigytech:
+# 	zorra
+# 	particle_board
+		
+# erebus:
+# 	asper
+# 	balsam
+# 	bamboo
+# 	baobab
+# 	cypress
+# 	eucalyptus
+# 	mahogany
+# 	marshwood
+# 	mossbark
+# 	petrified_wood
+# 	rotten_wood
+# 	scorched_wood
+# 	varnished_wood
+# 	white_wood
+		
+# abyssalcraft:
+# 	darklands_oak_wood
+# 	dreadlands_wood
+		
+# extratrees: # Binnie's Extra Trees
+# 	apple
+# 	fig
+# 	butternut
+# 	whitebeam
+# 	rowan
+# 	hemlock
+# 	ash
+# 	alder
+# 	beech
+# 	hawthorn
+# 	banana
+# 	yew
+# 	cypress
+# 	fir
+# 	hazel
+# 	hickory
+# 	elm
+# 	elder
+# 	holly
+# 	hornbeam
+# 	cedar
+# 	olive
+# 	sweetgum
+# 	locust_wood
+# 	pear
+# 	maclura
+# 	brazilwood
+# 	logwood
+# 	rosewood
+# 	purpleheart
+# 	iroko
+# 	gingko
+# 	eucalyptus
+# 	boxwood
+# 	syzgium
+# 	pink_ivory
+
+# plants2: # 'Plants' mod
+# 	crystal
+# 	dark_crystal
+# 	ash
+# 	blaze
+# 	black_kauri
+# 	brazil_pine
+# 	incense_cedar
+# 	murray_pine
 	

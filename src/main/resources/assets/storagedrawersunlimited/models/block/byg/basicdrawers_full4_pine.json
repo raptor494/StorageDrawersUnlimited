@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/byg/drawers_pine_side",
-        "front": "storagedrawersunlimited:blocks/byg/drawers_pine_front_4",
-        "side": "storagedrawersunlimited:blocks/byg/drawers_pine_side",
-        "trim": "storagedrawersunlimited:blocks/byg/drawers_pine_trim"
-    }
-}

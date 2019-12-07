@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/forestry/drawers_maple_side",
-        "front": "storagedrawersunlimited:blocks/forestry/drawers_maple_front_1",
-        "side": "storagedrawersunlimited:blocks/forestry/drawers_maple_side",
-        "trim": "storagedrawersunlimited:blocks/forestry/drawers_maple_trim"
-    }
-}

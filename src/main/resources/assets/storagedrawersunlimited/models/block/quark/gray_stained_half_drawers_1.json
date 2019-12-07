@@ -1,0 +1,10 @@
+{
+    "parent": "storagedrawers:block/half_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/quark/drawers_gray_stained_side_h",
+        "front": "storagedrawersunlimited:block/quark/drawers_gray_stained_front_1",
+        "back": "storagedrawersunlimited:block/quark/drawers_gray_stained_side",
+        "side": "storagedrawersunlimited:block/quark/drawers_gray_stained_side_v",
+        "trim": "storagedrawersunlimited:block/quark/drawers_gray_stained_trim"
+    }
+}

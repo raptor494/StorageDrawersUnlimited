@@ -1,0 +1,10 @@
+{
+    "planks": [
+        "fir_planks",
+        "traverse:fir_planks"
+    ],
+    "slabs": [
+        "fir_slab",
+        "traverse:fir_slab"
+    ]
+}

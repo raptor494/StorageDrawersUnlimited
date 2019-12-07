@@ -1,0 +1,287 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+displayURL="https://minecraft.curseforge.com/projects/storage-drawers-unlimited"
+authors="Raptor__"
+
+# Mod info
+[[mods]]
+    modId="storagedrawersunlimited"
+    version="${version}"
+    displayName="Storage Drawers Unlimited"
+    logoFile="assets/storagedrawersunlimited/logo.png"
+    credits="Texelsaur, for the original Storage Drawers mod"
+    description='''
+    More Storage Drawers variants!
+    '''
+
+# Dependencies list
+[[dependencies.storagedrawersunlimited]]
+    # the modid of the dependency
+    modId="forge" #mandatory
+    # Does this dependency have to exist - if not, ordering below must be specified
+    mandatory=true #mandatory
+    # The version range of the dependency
+    versionRange="[28,)" #mandatory
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering="NONE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side="BOTH"
+
+[[dependencies.storagedrawersunlimited]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.14.4,1.15)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.storagedrawersunlimited]]
+    modId="storagedrawers"
+    mandatory=true
+    versionRange="[1.14.4-6.0.0,)"
+    ordering="BEFORE"
+    side="BOTH"
+
+###################################
+###### OPTIONAL DEPENDENCIES ######
+###################################
+
+[[dependencies.storagedrawersunlimited]]
+    # Biomes o' Plenty
+    modId="biomesoplenty"
+    mandatory=false
+    versionRange="[1.14.4-9.0.0,)"
+    ordering="BEFORE"
+    side="BOTH"
+
+[[dependencies.storagedrawersunlimited]]
+    # Blue Skies
+    modId="blue_skies"
+    mandatory=false
+    versionRange="[1.14.4-0.0.1,)"
+    ordering="BEFORE"
+    side="BOTH"
+
+[[dependencies.storagedrawersunlimited]]
+    # Traverse
+    modId="traverse"
+    mandatory=false
+    versionRange="[1.14.4-2.0.1,)"
+    ordering="BEFORE"
+    side="BOTH"
+
+[[dependencies.storagedrawersunlimited]]
+    # Quark
+    modId="quark"
+    mandatory=false
+    versionRange="[r2.0-199,)"
+    ordering="BEFORE"
+    side="BOTH"
+
+[[dependencies.storagedrawersunlimited]]
+    # Glacidus
+    modId="glacidus"
+    mandatory=false
+    versionRange="[1.14.4-0.0.1,)"
+    ordering="BEFORE"
+    side="BOTH"
+
+[[dependencies.storagedrawersunlimited]]
+    # Good Night's Sleep
+    modId="goodnightsleep"
+    mandatory=false
+    versionRange="[1.14.4-1.0.0,)"
+    ordering="BEFORE"
+    side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # The Aether II
+#     modId="aether"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # The Aether
+#     modId="aether_legacy"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Storage Drawers Extras
+#     modId="storagedrawersextras"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Project: Vibrant Journeys
+#     modId="pvj"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Botania
+#     modId="botania"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # ThaumCraft
+#     modId="thaumcraft"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Forestry
+#     modId="forestry"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Natura
+#     modId="natura"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Immersive Engineering
+#     modId="immersiveengineering"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Rustic
+#     modId="rustic"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Oh the Biomes You'll Go
+#     modId="byg"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Integrated Dynamics
+#     modId="integrateddynamics"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # The Betweenlands
+#     modId="thebetweenlands"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Tropicraft
+#     modId="tropicraft"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Unlimited Chisel Works
+#     modId="unlimitedchiselworks"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # GrowthCraft - Bamboo
+#     modId="growthcraft_bamboo"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # GrowthCraft - Apples
+#     modId="growthcraft_apples"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Atum 2: Return to the Sands
+#     modId="atum"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Nature's Aura
+#     modId="naturesaura"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Prodigy Tech
+#     modId="prodigytech"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # The Erebus
+#     modId="erebus"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+#     #note: https://www.curseforge.com/minecraft/mc-mods/storage-drawers-erebus-pack
+
+# [[dependencies.storagedrawersunlimited]]
+#     # AbyssalCraft
+#     modId="abyssalcraft"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Binnie's Extra Trees
+#     modId="extratrees"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"
+
+# [[dependencies.storagedrawersunlimited]]
+#     # Plants
+#     modId="plants2"
+#     mandatory=false
+#     versionRange="N/A"
+#     ordering="BEFORE"
+#     side="BOTH"

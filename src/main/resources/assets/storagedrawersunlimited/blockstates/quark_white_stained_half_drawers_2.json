@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "storagedrawersunlimited:block/quark/white_stained_half_drawers_2" },
+        "facing=south": { "model": "storagedrawersunlimited:block/quark/white_stained_half_drawers_2", "y": 180 },
+        "facing=west": { "model": "storagedrawersunlimited:block/quark/white_stained_half_drawers_2", "y": 270 },
+        "facing=east": { "model": "storagedrawersunlimited:block/quark/white_stained_half_drawers_2", "y": 90 }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "storagedrawersunlimited:block/biomesoplenty/fir_full_drawers_1" },
+        "facing=south": { "model": "storagedrawersunlimited:block/biomesoplenty/fir_full_drawers_1", "y": 180 },
+        "facing=west": { "model": "storagedrawersunlimited:block/biomesoplenty/fir_full_drawers_1", "y": 270 },
+        "facing=east": { "model": "storagedrawersunlimited:block/biomesoplenty/fir_full_drawers_1", "y": 90 }
+    }
+}

@@ -1,9 +1,0 @@
-{
-    "parent": "storagedrawers:block/drawer_orientable",
-    "textures": {
-        "top": "storagedrawersunlimited:blocks/pvj/drawers_palm_side",
-        "front": "storagedrawersunlimited:blocks/pvj/drawers_palm_front_1",
-        "side": "storagedrawersunlimited:blocks/pvj/drawers_palm_side",
-        "trim": "storagedrawersunlimited:blocks/pvj/drawers_palm_trim"
-    }
-}

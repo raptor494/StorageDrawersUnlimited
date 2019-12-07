@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "storagedrawersunlimited:blocks/goodnightsleep/drawers_dead_wood_side"
-    }
-}
