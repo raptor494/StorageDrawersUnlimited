@@ -154,6 +154,10 @@ public class ResourceCreator {
 			usage = "Don't create blockstates")
 	private boolean noBlockstates = false;
 	
+	@Option(name = "-notags",
+			usage = "Don't add tags to storagedrawers/tags/blocks/drawers.json and storagedrawers/tags/items/drawers.json")
+	private boolean noTags = false;
+	
 	@Option(name = "-noreplaceimages", forbids = "-noreplace", 
 			usage = "Don't replace texture files if they exist")
 	private boolean noReplaceImages = false;
@@ -191,7 +195,7 @@ public class ResourceCreator {
 	private EnumSet<BackupType> backupTypes = EnumSet.noneOf(BackupType.class);
 	
 	private final File overlays_dir, template_models_dir, template_blockstates_dir, template_recipes_dir;
-	private final File textures_dir, block_models_dir, item_models_dir, blockstates_dir, item_tags_dir, recipes_dir;
+	private final File textures_dir, block_models_dir, item_models_dir, blockstates_dir, item_tags_dir, recipes_dir, storagedrawers_tags_dir;
 	
 	private final BufferedImage base, trim, face;
 	private final BufferedImage handle_1, handle_2, handle_4;
@@ -226,7 +230,7 @@ public class ResourceCreator {
 	private final Set<ResourceLocation> planks, slabs;
 	
 	// the filename templates
-	private final String block_model_filename_template, item_model_filename_template, blockstate_filename_template, recipe_filename_template, tag_filename_template;
+	private final String block_model_filename_template, item_model_filename_template, blockstate_filename_template, recipe_filename_template, tag_filename_template, tag_entries_template;
 	
 	@ExcludeDebug
 	private final JSONPrettyPrinter jsonPrettyPrinter;
@@ -458,6 +462,7 @@ public class ResourceCreator {
 			blockstate_filename_template  = filenames.getProperty("blockstates");
 			recipe_filename_template      = filenames.getProperty("recipes");
 			tag_filename_template  = filenames.getProperty("tags");
+			tag_entries_template = filenames.getProperty("tag_entries");
 		}
 		
 		if(out_dir.exists()) {
@@ -530,9 +535,9 @@ public class ResourceCreator {
 		recipes_dir = new File(out_dir.getParentFile().getParent(), "data/" + out_dir.getName() + "/recipes");
 		item_tags_dir = new File(recipes_dir.getParent(), "tags/items");
 		lang_file = new File(out_dir, "lang/en_us.json");
+		storagedrawers_tags_dir = new File(out_dir.getParentFile().getParent(), "data/storagedrawers/tags");
 		if(!lang_file.getParentFile().exists())
 			lang_file.getParentFile().mkdirs();		
-		
 		if(!blockstates_dir.exists() && !noBlockstates)
 			blockstates_dir.mkdirs();
 		if(!textures_dir.exists() && !noImages)
@@ -545,6 +550,8 @@ public class ResourceCreator {
 			recipes_dir.mkdirs();
 		if(!item_tags_dir.exists() && !noRecipes)
 			item_tags_dir.mkdirs();
+		if(!storagedrawers_tags_dir.exists() && !noTags)
+			storagedrawers_tags_dir.mkdirs();
 		
 		if(noModels) {			
 			block_basicdrawers_full1 = null;
@@ -892,7 +899,7 @@ public class ResourceCreator {
 	}
 	
 	@ExcludeDebug
-	private boolean madeNoImages = true, madeNoModels = true, madeNoBlockstates = true, uneditedLang = true, madeNoRecipes = true;
+	private boolean madeNoImages = true, madeNoModels = true, madeNoBlockstates = true, uneditedLang = true, madeNoRecipes = true, madeNoTags = true;
 	
 	static final Collection<Field> debugFields;
 
@@ -967,6 +974,13 @@ public class ResourceCreator {
 				println("recipes:"); indent++;
 				recipes();
 				if(madeNoRecipes) println("(none)");
+				indent--; println();
+			}
+			
+			if(!noTags) {
+				println("tags:"); indent++;
+				tags();
+				if(madeNoTags) println("(none)");
 				indent--; println();
 			}
 		}
@@ -1127,12 +1141,12 @@ public class ResourceCreator {
 	void blockstates() {
 		println("drawers:"); indent++;
 		for(ModelType shape : ModelType.DRAWER_TYPES) {
-			madeNoBlockstates &= saveFormattedJSON(drawer_blockstate_template.replace("${shape}", shape.name()).replace("${model}", formatText(block_model_filename_template.replace("${shape}", shape.translationKey))), blockstates_dir, blockstate_filename_template.replace("${shape}", shape.translationKey), noReplaceBlockstates, backupBlockstates);
+			madeNoBlockstates &= saveFormattedJSON(drawer_blockstate_template.replace("${shape}", shape.name()).replace("${model}", formatModidAndMaterial(block_model_filename_template.replace("${shape}", shape.translationKey))), blockstates_dir, blockstate_filename_template.replace("${shape}", shape.translationKey), noReplaceBlockstates, backupBlockstates);
 		}
 		indent--;
 		
 		println("trim:"); indent++;
-		madeNoBlockstates &= saveFormattedJSON(trim_blockstate_template.replace("${model}", formatText(block_model_filename_template.replace("${shape}", ModelType.trim.translationKey))), blockstates_dir, blockstate_filename_template.replace("${shape}", ModelType.trim.translationKey), noReplaceBlockstates, backupBlockstates);
+		madeNoBlockstates &= saveFormattedJSON(trim_blockstate_template.replace("${model}", formatModidAndMaterial(block_model_filename_template.replace("${shape}", ModelType.trim.translationKey))), blockstates_dir, blockstate_filename_template.replace("${shape}", ModelType.trim.translationKey), noReplaceBlockstates, backupBlockstates);
 		indent--;
 	}
 	
@@ -1181,7 +1195,8 @@ public class ResourceCreator {
 			
 		} catch(IOException e) {
 			e.printStackTrace();
-			error("Error while writing to lang file " + lang_file);
+			error("Error while writing to lang file");
+			error(" >> File " + getCanonicalPath(lang_file));
 			throw fatalError();
 		}
 	}
@@ -1214,29 +1229,29 @@ public class ResourceCreator {
 				println("(none)"); indent--;
 				return null;
 			}
-			case 1:
-			{
-				ResourceLocation loc = materials.iterator().next();
-				if(tagFile.exists() && tagFile.isFile() && !noReplaceRecipes) {
-					if(backupRecipes)
-						backup(tagFile);
-					tagFile.delete();
-					madeNoRecipes = false;
-				}
-				if(loc.isTag)
-					println('#' + loc.toString());
-				else
-					println(loc);
-				indent--;
-				return (loc.isTag? "\"tag\": \"" : "\"item\": \"") + loc + '"';
-			}
+//			case 1:
+//			{
+//				ResourceLocation loc = materials.iterator().next();
+//				if(tagFile.exists() && tagFile.isFile() && !noReplaceRecipes) {
+//					if(backupRecipes)
+//						backup(tagFile);
+//					tagFile.delete();
+//					madeNoRecipes = false;
+//				}
+//				if(loc.isTag)
+//					println('#' + loc.toString());
+//				else
+//					println(loc);
+//				indent--;
+//				return (loc.isTag? "\"tag\": \"" : "\"item\": \"") + loc + '"';
+//			}
 			default:
 			{
 				File tagsDir = new File(item_tags_dir, modid);
 				if(!tagsDir.exists() || !tagsDir.isDirectory())
 					tagsDir.mkdirs();
 				StringBuilder textBuilder = new StringBuilder();
-				textBuilder.append("{\n\t\"values\": [");
+				textBuilder.append("{\n\t\"optional\": [");
 				boolean first = true;
 				for(ResourceLocation loc : planks) {
 					if(first) first = false;
@@ -1283,6 +1298,69 @@ public class ResourceCreator {
 			dir.mkdirs();
 		
 		madeNoRecipes &= saveFormattedJSON(template, dir, recipe_filename_template.replace("${shape}", type.translationKey), noReplaceRecipes, backupRecipes);
+	}
+	
+	void tags() {
+		tag(new File(storagedrawers_tags_dir, "items/drawers.json"));
+		tag(new File(storagedrawers_tags_dir, "blocks/drawers.json"));
+	}
+	
+	@SuppressWarnings("unchecked")
+	void tag(File file) {
+		JSONParser jsonParser = new JSONParser();
+		JSONObject tags_obj;
+		if(file.exists() && file.isFile()) {
+			try(Reader reader = new FileReader(file)) {
+				
+				tags_obj = (JSONObject)jsonParser.parse(reader);
+				
+			} catch(IOException | ClassCastException | ParseException e) {
+				e.printStackTrace();
+				error("Error reading the tags file");
+				error(" >> File " + getCanonicalPath(file));
+				throw fatalError();
+			}
+		} else {
+			tags_obj = new JSONObject();
+			File parent_dir = file.getParentFile();
+			if(!parent_dir.exists() || !parent_dir.isDirectory())
+				parent_dir.mkdirs();
+		}
+		
+		println(file + ":"); indent++;
+		
+		tags_obj.put("replace", false);
+		
+		JSONArray tags_optional = (JSONArray)tags_obj.computeIfAbsent("optional", (key) -> new JSONArray());
+		boolean added = false;
+		for(ModelType type : ModelType.VALUES) {
+			String entry = formatModidAndMaterial(tag_entries_template.replace("${type}", type.translationKey));
+			if(!tags_optional.contains(entry)) {
+				tags_optional.add(entry);
+				madeNoTags = false;
+				added = true;
+				println(entry);
+			}
+		}
+		
+		if(!added) {
+			println("(unchanged)");
+		}
+		
+		indent--; println();
+		
+		if(added) {
+			try(Writer writer = new FileWriter(file)) {
+				
+				writer.write(jsonPrettyPrinter.toJSONString(tags_obj));
+				
+			} catch(IOException e) {
+				e.printStackTrace();
+				error("Error while writing to tag file");
+				error(" >> File " + getCanonicalPath(file));
+				throw fatalError();
+			}
+		}
 	}
 	
 	void mdl(ModelType type, String blockModel, String itemModel) {
@@ -1332,7 +1410,7 @@ public class ResourceCreator {
 			return true;
 		}
 		println(file);
-		return saveText(formatText(text), file, backup);
+		return saveText(formatModidAndMaterial(text), file, backup);
 	}
 	
 	boolean saveText(String text, File file, boolean noReplace, boolean backup) {
@@ -1444,7 +1522,7 @@ public class ResourceCreator {
 		frame.setVisible(true);
 	}
 	
-	String formatText(String input) {
+	String formatModidAndMaterial(String input) {
 		return input.replace("${material}", material)
 				    .replace("${modid}", modid);
 	}

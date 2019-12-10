@@ -7,7 +7,7 @@
     ],
     "key": {
         "/": { "tag": "forge:rods/wooden" },
-        "X": { "item": "biomesoplenty:jacaranda_planks" }
+        "X": { "tag": "storagedrawersunlimited:biomesoplenty/jacaranda_planks" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_jacaranda_trim", "count": 4 }
 }

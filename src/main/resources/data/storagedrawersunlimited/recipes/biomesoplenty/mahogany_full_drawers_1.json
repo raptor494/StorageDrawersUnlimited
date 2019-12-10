@@ -6,7 +6,7 @@
         "///"
     ],
     "key": {
-        "/": { "item": "biomesoplenty:mahogany_planks" },
+        "/": { "tag": "storagedrawersunlimited:biomesoplenty/mahogany_planks" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_mahogany_full_drawers_1", "count": 1 }

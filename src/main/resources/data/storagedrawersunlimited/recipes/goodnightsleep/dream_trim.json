@@ -7,7 +7,7 @@
     ],
     "key": {
         "/": { "tag": "forge:rods/wooden" },
-        "X": { "item": "goodnightsleep:dream_plank" }
+        "X": { "tag": "storagedrawersunlimited:goodnightsleep/dream_planks" }
     },
     "result": { "item": "storagedrawersunlimited:goodnightsleep_dream_trim", "count": 4 }
 }

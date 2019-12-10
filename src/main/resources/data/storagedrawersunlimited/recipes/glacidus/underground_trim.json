@@ -7,7 +7,7 @@
     ],
     "key": {
         "/": { "tag": "forge:rods/wooden" },
-        "X": { "item": "glacidus:underground_planks" }
+        "X": { "tag": "storagedrawersunlimited:glacidus/underground_planks" }
     },
     "result": { "item": "storagedrawersunlimited:glacidus_underground_trim", "count": 4 }
 }

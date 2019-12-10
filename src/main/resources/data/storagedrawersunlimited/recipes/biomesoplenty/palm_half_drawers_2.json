@@ -6,7 +6,7 @@
         "/X/"
     ],
     "key": {
-        "/": { "item": "biomesoplenty:palm_slab" },
+        "/": { "tag": "storagedrawersunlimited:biomesoplenty/palm_slabs" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_palm_half_drawers_2", "count": 2 }

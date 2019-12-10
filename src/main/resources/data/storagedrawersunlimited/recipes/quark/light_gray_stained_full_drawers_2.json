@@ -6,7 +6,7 @@
         "/X/"
     ],
     "key": {
-        "/": { "item": "quark:light_gray_stained_planks" },
+        "/": { "tag": "storagedrawersunlimited:quark/light_gray_stained_planks" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:quark_light_gray_stained_full_drawers_2", "count": 2 }

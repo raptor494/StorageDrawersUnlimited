@@ -7,7 +7,7 @@
     ],
     "key": {
         "/": { "tag": "forge:rods/wooden" },
-        "X": { "item": "biomesoplenty:hellbark_planks" }
+        "X": { "tag": "storagedrawersunlimited:biomesoplenty/hellbark_planks" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_hellbark_trim", "count": 4 }
 }

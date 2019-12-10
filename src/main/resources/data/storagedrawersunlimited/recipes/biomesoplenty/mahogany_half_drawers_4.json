@@ -6,7 +6,7 @@
         "X/X"
     ],
     "key": {
-        "/": { "item": "biomesoplenty:mahogany_slab" },
+        "/": { "tag": "storagedrawersunlimited:biomesoplenty/mahogany_slabs" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_mahogany_half_drawers_4", "count": 4 }

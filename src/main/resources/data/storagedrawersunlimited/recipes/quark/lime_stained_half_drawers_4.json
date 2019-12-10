@@ -6,7 +6,7 @@
         "X/X"
     ],
     "key": {
-        "/": { "item": "quark:lime_stained_slab" },
+        "/": { "tag": "storagedrawersunlimited:quark/lime_stained_slabs" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:quark_lime_stained_half_drawers_4", "count": 4 }

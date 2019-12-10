@@ -6,7 +6,7 @@
         "X/X"
     ],
     "key": {
-        "/": { "item": "biomesoplenty:umbran_slab" },
+        "/": { "tag": "storagedrawersunlimited:biomesoplenty/umbran_slabs" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_umbran_half_drawers_4", "count": 4 }

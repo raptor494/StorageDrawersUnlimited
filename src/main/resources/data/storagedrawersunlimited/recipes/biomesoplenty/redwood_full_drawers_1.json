@@ -6,7 +6,7 @@
         "///"
     ],
     "key": {
-        "/": { "item": "biomesoplenty:redwood_planks" },
+        "/": { "tag": "storagedrawersunlimited:biomesoplenty/redwood_planks" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_redwood_full_drawers_1", "count": 1 }

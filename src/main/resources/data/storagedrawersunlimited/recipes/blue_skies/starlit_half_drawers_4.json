@@ -6,7 +6,7 @@
         "X/X"
     ],
     "key": {
-        "/": { "item": "blue_skies:starlit_slab" },
+        "/": { "tag": "storagedrawersunlimited:blue_skies/starlit_slabs" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:blue_skies_starlit_half_drawers_4", "count": 4 }

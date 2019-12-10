@@ -6,7 +6,7 @@
         "/X/"
     ],
     "key": {
-        "/": { "item": "blue_skies:dusk_slab" },
+        "/": { "tag": "storagedrawersunlimited:blue_skies/dusk_slabs" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:blue_skies_dusk_half_drawers_2", "count": 2 }

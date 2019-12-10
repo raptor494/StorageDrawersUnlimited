@@ -4,17 +4,18 @@ import subprocess
 from subprocess import PIPE
 from glob import glob
 
-DO_MODELS       = 1
+DO_MODELS       = 0
 DO_LANG         = 0
 DO_BLOCKSTATES  = 0
 DO_TEXTURES     = 0
 DO_RECIPES      = 0
+DO_TAGS         = 1
 
 REPLACE_MODELS      = 1
 REPLACE_LANG        = 1
 REPLACE_BLOCKSTATES = 1
 REPLACE_TEXTURES    = 0
-REPLACE_RECIPES     = 0
+REPLACE_RECIPES     = 1
 
     
 olddir = os.curdir
@@ -94,6 +95,11 @@ for modpath in moddirs:
             args += ['-materials', Rf'{modpath}\base\materials_{material}.json']
         else:
             args.append('-norecipes')
+
+        if DO_TAGS:
+            pass
+        else:
+            args.append('-notags')
 
         subprocess.run(args, stdout=sys.stdout, stderr=sys.stderr)
 

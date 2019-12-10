@@ -6,7 +6,7 @@
         "///"
     ],
     "key": {
-        "/": { "item": "goodnightsleep:dream_plank" },
+        "/": { "tag": "storagedrawersunlimited:goodnightsleep/dream_planks" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:goodnightsleep_dream_full_drawers_1", "count": 1 }

@@ -7,7 +7,7 @@
     ],
     "key": {
         "/": { "tag": "forge:rods/wooden" },
-        "X": { "item": "natura:bloodwood_planks" }
+        "X": { "tag": "storagedrawersunlimited:natura/bloodwood_planks" }
     },
     "result": { "item": "storagedrawersunlimited:natura_bloodwood_trim", "count": 4 }
 }

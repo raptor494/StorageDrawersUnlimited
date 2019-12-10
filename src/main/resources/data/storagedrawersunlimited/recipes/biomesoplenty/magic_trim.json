@@ -7,7 +7,7 @@
     ],
     "key": {
         "/": { "tag": "forge:rods/wooden" },
-        "X": { "item": "biomesoplenty:magic_planks" }
+        "X": { "tag": "storagedrawersunlimited:biomesoplenty/magic_planks" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_magic_trim", "count": 4 }
 }

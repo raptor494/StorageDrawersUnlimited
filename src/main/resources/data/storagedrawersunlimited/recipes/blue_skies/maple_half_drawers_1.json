@@ -6,7 +6,7 @@
         "///"
     ],
     "key": {
-        "/": { "item": "blue_skies:maple_slab" },
+        "/": { "tag": "storagedrawersunlimited:blue_skies/maple_slabs" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:blue_skies_maple_half_drawers_1", "count": 1 }

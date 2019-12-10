@@ -7,7 +7,7 @@
     ],
     "key": {
         "/": { "tag": "forge:rods/wooden" },
-        "X": { "item": "biomesoplenty:mangrove_planks" }
+        "X": { "tag": "storagedrawersunlimited:biomesoplenty/mangrove_planks" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_mangrove_trim", "count": 4 }
 }

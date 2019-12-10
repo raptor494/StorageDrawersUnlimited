@@ -6,7 +6,7 @@
         "/X/"
     ],
     "key": {
-        "/": { "item": "biomesoplenty:eucalyptus_planks" },
+        "/": { "tag": "storagedrawersunlimited:biomesoplenty/eucalyptus_planks" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_eucalyptus_full_drawers_2", "count": 2 }

@@ -7,7 +7,7 @@
     ],
     "key": {
         "/": { "tag": "forge:rods/wooden" },
-        "X": { "item": "blue_skies:frostbright_planks" }
+        "X": { "tag": "storagedrawersunlimited:blue_skies/frostbright_planks" }
     },
     "result": { "item": "storagedrawersunlimited:blue_skies_frostbright_trim", "count": 4 }
 }

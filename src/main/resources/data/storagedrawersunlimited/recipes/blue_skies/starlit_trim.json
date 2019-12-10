@@ -7,7 +7,7 @@
     ],
     "key": {
         "/": { "tag": "forge:rods/wooden" },
-        "X": { "item": "blue_skies:starlit_planks" }
+        "X": { "tag": "storagedrawersunlimited:blue_skies/starlit_planks" }
     },
     "result": { "item": "storagedrawersunlimited:blue_skies_starlit_trim", "count": 4 }
 }

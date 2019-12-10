@@ -7,7 +7,7 @@
     ],
     "key": {
         "/": { "tag": "forge:rods/wooden" },
-        "X": { "item": "quark:gray_stained_planks" }
+        "X": { "tag": "storagedrawersunlimited:quark/gray_stained_planks" }
     },
     "result": { "item": "storagedrawersunlimited:quark_gray_stained_trim", "count": 4 }
 }

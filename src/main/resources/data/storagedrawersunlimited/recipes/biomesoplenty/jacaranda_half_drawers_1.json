@@ -6,7 +6,7 @@
         "///"
     ],
     "key": {
-        "/": { "item": "biomesoplenty:jacaranda_slab" },
+        "/": { "tag": "storagedrawersunlimited:biomesoplenty/jacaranda_slabs" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_jacaranda_half_drawers_1", "count": 1 }

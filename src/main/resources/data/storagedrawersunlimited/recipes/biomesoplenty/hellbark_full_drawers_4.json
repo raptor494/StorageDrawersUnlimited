@@ -6,7 +6,7 @@
         "X/X"
     ],
     "key": {
-        "/": { "item": "biomesoplenty:hellbark_planks" },
+        "/": { "tag": "storagedrawersunlimited:biomesoplenty/hellbark_planks" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_hellbark_full_drawers_4", "count": 4 }

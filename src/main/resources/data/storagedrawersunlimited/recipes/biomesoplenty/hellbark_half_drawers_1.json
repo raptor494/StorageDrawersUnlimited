@@ -6,7 +6,7 @@
         "///"
     ],
     "key": {
-        "/": { "item": "biomesoplenty:hellbark_slab" },
+        "/": { "tag": "storagedrawersunlimited:biomesoplenty/hellbark_slabs" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_hellbark_half_drawers_1", "count": 1 }

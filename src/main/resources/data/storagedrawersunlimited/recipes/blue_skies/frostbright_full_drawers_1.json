@@ -6,7 +6,7 @@
         "///"
     ],
     "key": {
-        "/": { "item": "blue_skies:frostbright_planks" },
+        "/": { "tag": "storagedrawersunlimited:blue_skies/frostbright_planks" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:blue_skies_frostbright_full_drawers_1", "count": 1 }

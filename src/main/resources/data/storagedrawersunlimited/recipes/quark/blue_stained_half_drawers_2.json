@@ -6,7 +6,7 @@
         "/X/"
     ],
     "key": {
-        "/": { "item": "quark:blue_stained_slab" },
+        "/": { "tag": "storagedrawersunlimited:quark/blue_stained_slabs" },
         "X": { "tag": "forge:chests" }
     },
     "result": { "item": "storagedrawersunlimited:quark_blue_stained_half_drawers_2", "count": 2 }

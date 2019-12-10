@@ -33,14 +33,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class SDUBlocks {
 	
-//	@ObjectHolder(SDUnlimited.MODID)
-//	public static final class Tile {
-//		public static final TileEntityType<?>
-//			UNLIMITED_DRAWERS_1 = null,
-//			UNLIMITED_DRAWERS_2 = null,
-//			UNLIMITED_DRAWERS_4 = null;
-//	}
-	
 	@EventBusSubscriber(modid = SDUnlimited.MODID, bus = Bus.MOD)
 	public static class Registration {
 		
@@ -62,8 +54,6 @@ public class SDUBlocks {
 		@SubscribeEvent(priority = EventPriority.LOWEST)
 		public static void registerTileEntities(RegistryEvent.Register<TileEntityType<?>> event) {
 			
-//			registerTileEntity(event, "unlimited_drawers_1", )
-			  
 			reregisterTileEntity(event, StorageDrawers.MOD_ID, "standard_drawers_1", TileEntityDrawersStandard.Slot1::new, 
 					Streams.concat(
 							DRAWERS_FULL_1.stream(), 
@@ -129,14 +119,9 @@ public class SDUBlocks {
 		// reregisters a tile entity defined by Storage Drawers
 		private static <T extends TileEntity> void reregisterTileEntity(RegistryEvent.Register<TileEntityType<?>> event, String modid, String name, Supplier<? extends T> factory, Stream<? extends Block> blocks) {
 			TileEntityType<?> type = event.getRegistry().getValue(new ResourceLocation(modid, name));
-			if(type == null) {
-				event.getRegistry().register(TileEntityType.Builder.create(factory, blocks.toArray(Block[]::new))
-						.build(null).setRegistryName(modid, name));
-			} else {
-				int oldSize = type.validBlocks.size();
-				type.validBlocks = ImmutableSet.copyOf(Stream.concat(type.validBlocks.stream(), blocks).collect(Collectors.toSet()));
-				logger.info("reregistering tile entity " + modid + ":" + name + " with " + type.validBlocks.size() + " blocks (" + (type.validBlocks.size() - oldSize) + " new blocks)");
-			}
+			int oldSize = type.validBlocks.size();
+			type.validBlocks = ImmutableSet.copyOf(Stream.concat(type.validBlocks.stream(), blocks).collect(Collectors.toSet()));
+			logger.info("reregistering tile entity " + modid + ":" + name + " with " + type.validBlocks.size() + " blocks (" + (type.validBlocks.size() - oldSize) + " new blocks)");
 		}
 		
 		// reregisters a tile entity defined by Storage Drawers

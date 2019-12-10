@@ -7,7 +7,7 @@
     ],
     "key": {
         "/": { "tag": "forge:rods/wooden" },
-        "X": { "item": "biomesoplenty:ethereal_planks" }
+        "X": { "tag": "storagedrawersunlimited:biomesoplenty/ethereal_planks" }
     },
     "result": { "item": "storagedrawersunlimited:biomesoplenty_ethereal_trim", "count": 4 }
 }
