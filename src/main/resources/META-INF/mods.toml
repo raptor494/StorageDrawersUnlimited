@@ -38,7 +38,7 @@ authors="Raptor__"
     modId="storagedrawers"
     mandatory=true
     versionRange="[1.14.4-6.0.0,)"
-    ordering="BEFORE"
+    ordering="AFTER"
     side="BOTH"
 
 ###################################

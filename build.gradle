@@ -116,7 +116,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    println "absolute project path = ${absoluteProjectPath(project.path)}"
+    //println "absolute project path = ${absoluteProjectPath(project.path)}"
     compile project(path: ":..:StorageDrawers", transitive: false)
     // compile fg.deobf(name: "com.jaquadro.minecraft.storagedrawrs:StorageDrawers:1.14.4-6.0.5")
 }

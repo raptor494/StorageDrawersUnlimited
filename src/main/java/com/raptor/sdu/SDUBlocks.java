@@ -1,8 +1,8 @@
 package com.raptor.sdu;
 
+import static com.jaquadro.minecraft.storagedrawers.core.ModBlocks.*;
 import static com.raptor.sdu.type.Mods.*;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Set;
@@ -64,78 +64,84 @@ public class SDUBlocks {
 			
 //			registerTileEntity(event, "unlimited_drawers_1", )
 			  
-			reregisterTileEntity(event, "standard_drawers_1", TileEntityDrawersStandard.Slot1::new, 
+			reregisterTileEntity(event, StorageDrawers.MOD_ID, "standard_drawers_1", TileEntityDrawersStandard.Slot1::new, 
 					Streams.concat(
 							DRAWERS_FULL_1.stream(), 
-							DRAWERS_HALF_1.stream()//, 
-//							Stream.of(
-//								OAK_FULL_DRAWERS_1, 
-//								OAK_HALF_DRAWERS_1,
-//								SPRUCE_FULL_DRAWERS_1,
-//								SPRUCE_HALF_DRAWERS_1,
-//								BIRCH_FULL_DRAWERS_1,
-//								BIRCH_HALF_DRAWERS_1,
-//								JUNGLE_FULL_DRAWERS_1,
-//								JUNGLE_HALF_DRAWERS_1,
-//								ACACIA_FULL_DRAWERS_1,
-//								ACACIA_HALF_DRAWERS_1,
-//								DARK_OAK_FULL_DRAWERS_1,
-//								DARK_OAK_HALF_DRAWERS_1
-//							)
-					)
-					.toArray(Block[]::new));
+							DRAWERS_HALF_1.stream(), 
+							Stream.of(
+								OAK_FULL_DRAWERS_1, 
+								OAK_HALF_DRAWERS_1,
+								SPRUCE_FULL_DRAWERS_1,
+								SPRUCE_HALF_DRAWERS_1,
+								BIRCH_FULL_DRAWERS_1,
+								BIRCH_HALF_DRAWERS_1,
+								JUNGLE_FULL_DRAWERS_1,
+								JUNGLE_HALF_DRAWERS_1,
+								ACACIA_FULL_DRAWERS_1,
+								ACACIA_HALF_DRAWERS_1,
+								DARK_OAK_FULL_DRAWERS_1,
+								DARK_OAK_HALF_DRAWERS_1
+							)
+					));
 			
-			reregisterTileEntity(event, "standard_drawers_2", TileEntityDrawersStandard.Slot2::new, 
+			reregisterTileEntity(event, StorageDrawers.MOD_ID, "standard_drawers_2", TileEntityDrawersStandard.Slot2::new, 
 					Streams.concat(
 							DRAWERS_FULL_2.stream(), 
-							DRAWERS_HALF_2.stream()//,
-//							Stream.of(
-//								OAK_FULL_DRAWERS_2,
-//								OAK_HALF_DRAWERS_2,
-//								SPRUCE_FULL_DRAWERS_2,
-//								SPRUCE_HALF_DRAWERS_2,
-//								BIRCH_FULL_DRAWERS_2,
-//								BIRCH_HALF_DRAWERS_2,
-//								JUNGLE_FULL_DRAWERS_2,
-//								JUNGLE_HALF_DRAWERS_2,
-//								ACACIA_FULL_DRAWERS_2,
-//								ACACIA_HALF_DRAWERS_2,
-//								DARK_OAK_FULL_DRAWERS_2,
-//								DARK_OAK_HALF_DRAWERS_2
-//							)
-					)
-					.toArray(Block[]::new));
+							DRAWERS_HALF_2.stream(),
+							Stream.of(
+								OAK_FULL_DRAWERS_2,
+								OAK_HALF_DRAWERS_2,
+								SPRUCE_FULL_DRAWERS_2,
+								SPRUCE_HALF_DRAWERS_2,
+								BIRCH_FULL_DRAWERS_2,
+								BIRCH_HALF_DRAWERS_2,
+								JUNGLE_FULL_DRAWERS_2,
+								JUNGLE_HALF_DRAWERS_2,
+								ACACIA_FULL_DRAWERS_2,
+								ACACIA_HALF_DRAWERS_2,
+								DARK_OAK_FULL_DRAWERS_2,
+								DARK_OAK_HALF_DRAWERS_2
+							)
+					));
 			
-			reregisterTileEntity(event, "standard_drawers_4", TileEntityDrawersStandard.Slot4::new, 
+			reregisterTileEntity(event, StorageDrawers.MOD_ID, "standard_drawers_4", TileEntityDrawersStandard.Slot4::new, 
 					Streams.concat(
 							DRAWERS_FULL_4.stream(), 
-							DRAWERS_HALF_4.stream()//,
-//							Stream.of(
-//								OAK_FULL_DRAWERS_4,
-//				                OAK_HALF_DRAWERS_4,
-//				                SPRUCE_FULL_DRAWERS_4,
-//				                SPRUCE_HALF_DRAWERS_4,
-//				                BIRCH_FULL_DRAWERS_4,
-//				                BIRCH_HALF_DRAWERS_4,
-//				                JUNGLE_FULL_DRAWERS_4,
-//				                JUNGLE_HALF_DRAWERS_4,
-//				                ACACIA_FULL_DRAWERS_4,
-//				                ACACIA_HALF_DRAWERS_4,
-//				                DARK_OAK_FULL_DRAWERS_4,
-//				                DARK_OAK_HALF_DRAWERS_4
-//							)
-					)
-					.toArray(Block[]::new));
+							DRAWERS_HALF_4.stream(),
+							Stream.of(
+								OAK_FULL_DRAWERS_4,
+				                OAK_HALF_DRAWERS_4,
+				                SPRUCE_FULL_DRAWERS_4,
+				                SPRUCE_HALF_DRAWERS_4,
+				                BIRCH_FULL_DRAWERS_4,
+				                BIRCH_HALF_DRAWERS_4,
+				                JUNGLE_FULL_DRAWERS_4,
+				                JUNGLE_HALF_DRAWERS_4,
+				                ACACIA_FULL_DRAWERS_4,
+				                ACACIA_HALF_DRAWERS_4,
+				                DARK_OAK_FULL_DRAWERS_4,
+				                DARK_OAK_HALF_DRAWERS_4
+							)
+					));
 			
+		}
+
+		// reregisters a tile entity defined by Storage Drawers
+		private static <T extends TileEntity> void reregisterTileEntity(RegistryEvent.Register<TileEntityType<?>> event, String modid, String name, Supplier<? extends T> factory, Stream<? extends Block> blocks) {
+			TileEntityType<?> type = event.getRegistry().getValue(new ResourceLocation(modid, name));
+			if(type == null) {
+				event.getRegistry().register(TileEntityType.Builder.create(factory, blocks.toArray(Block[]::new))
+						.build(null).setRegistryName(modid, name));
+			} else {
+				int oldSize = type.validBlocks.size();
+				type.validBlocks = ImmutableSet.copyOf(Stream.concat(type.validBlocks.stream(), blocks).collect(Collectors.toSet()));
+				logger.info("reregistering tile entity " + modid + ":" + name + " with " + type.validBlocks.size() + " blocks (" + (type.validBlocks.size() - oldSize) + " new blocks)");
+			}
 		}
 		
 		// reregisters a tile entity defined by Storage Drawers
-		private static <T extends TileEntity> void reregisterTileEntity(RegistryEvent.Register<TileEntityType<?>> event, String name, Supplier<? extends T> factory, Block... blocks) {
-			logger.info("reregistering tile entity " + StorageDrawers.MOD_ID + ":" + name + " with " + blocks.length + " blocks");
-//            event.getRegistry().register(TileEntityType.Builder.create(factory, blocks)
-//                .build(null).setRegistryName(StorageDrawers.MOD_ID, name));
-			TileEntityType<?> type = event.getRegistry().getValue(new ResourceLocation(StorageDrawers.MOD_ID, name));
-			type.validBlocks = ImmutableSet.copyOf(Stream.concat(type.validBlocks.stream(), Arrays.stream(blocks)).collect(Collectors.toSet())); 
+		private static <T extends TileEntity> void reregisterTileEntity(RegistryEvent.Register<TileEntityType<?>> event, String modid, String name, Supplier<? extends T> factory, Block... blocks) {
+			reregisterTileEntity(event, modid, name, factory, Stream.of(blocks));
         }
 		
 		private static <T extends TileEntity> void registerTileEntity(RegistryEvent.Register<TileEntityType<?>> event, String name, Supplier<? extends T> factory, Block... blocks) {
