@@ -20,6 +20,7 @@ import net.minecraft.client.renderer.model.BlockModel;
 import net.minecraft.resources.IResource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -28,7 +29,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 public class SDUBasicDrawerModel {
 
-	@EventBusSubscriber(modid = SDUnlimited.MODID, bus = Bus.MOD)
+	@EventBusSubscriber(modid = SDUnlimited.MODID, bus = Bus.MOD, value = Dist.CLIENT)
 	public static class Register {
 		
 		@SubscribeEvent

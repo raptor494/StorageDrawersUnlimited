@@ -8,7 +8,7 @@ DO_MODELS       = 0
 DO_LANG         = 0
 DO_BLOCKSTATES  = 0
 DO_TEXTURES     = 0
-DO_RECIPES      = 0
+DO_RECIPES      = 1
 DO_TAGS         = 1
 
 REPLACE_MODELS      = 1

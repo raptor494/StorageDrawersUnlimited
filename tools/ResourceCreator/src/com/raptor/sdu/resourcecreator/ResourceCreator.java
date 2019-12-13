@@ -1251,7 +1251,7 @@ public class ResourceCreator {
 				if(!tagsDir.exists() || !tagsDir.isDirectory())
 					tagsDir.mkdirs();
 				StringBuilder textBuilder = new StringBuilder();
-				textBuilder.append("{\n\t\"optional\": [");
+				textBuilder.append("{\n\t\"values\": [],\n\t\"optional\": [");
 				boolean first = true;
 				for(ResourceLocation loc : planks) {
 					if(first) first = false;
@@ -1331,8 +1331,14 @@ public class ResourceCreator {
 		
 		tags_obj.put("replace", false);
 		
-		JSONArray tags_optional = (JSONArray)tags_obj.computeIfAbsent("optional", (key) -> new JSONArray());
+		JSONArray tags_optional = (JSONArray)tags_obj.computeIfAbsent("optional", (Object key) -> new JSONArray());
 		boolean added = false;
+		
+		if(!tags_obj.containsKey("values")) {
+			added = true;
+			tags_obj.put("values", new JSONArray());
+		}
+		
 		for(ModelType type : ModelType.VALUES) {
 			String entry = formatModidAndMaterial(tag_entries_template.replace("${type}", type.translationKey));
 			if(!tags_optional.contains(entry)) {
