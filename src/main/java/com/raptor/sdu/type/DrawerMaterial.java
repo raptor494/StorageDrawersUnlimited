@@ -9,7 +9,7 @@ import com.jaquadro.minecraft.storagedrawers.block.BlockStandardDrawers;
 import com.jaquadro.minecraft.storagedrawers.block.BlockTrim;
 import com.jaquadro.minecraft.storagedrawers.item.ItemDrawers;
 import com.raptor.sdu.SDUCreativeTabs;
-import com.raptor.sdu.SDUnlimited;
+import com.raptor.sdu.StorageDrawersUnlimited;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -21,6 +21,7 @@ public class DrawerMaterial {
 	private final String name;
 	private final Material material;
 	private final SoundType soundType;
+	private final int lightLevel;
 	public BlockDrawers block_drawers_full_1, block_drawers_full_2, block_drawers_full_4;
 	public BlockDrawers block_drawers_half_1, block_drawers_half_2, block_drawers_half_4;
 	public BlockTrim    block_trim;
@@ -28,10 +29,11 @@ public class DrawerMaterial {
 	public ItemDrawers item_drawers_half_1, item_drawers_half_2, item_drawers_half_4;
 	public BlockItem   item_trim;
 	
-	private DrawerMaterial(String name, Material material, SoundType soundType) {
+	private DrawerMaterial(String name, Material material, SoundType soundType, int lightLevel) {
 		this.name = name;
 		this.material = material;
 		this.soundType = soundType;
+		this.lightLevel = lightLevel;
 	}
 	
 	private boolean linked = false;
@@ -43,7 +45,8 @@ public class DrawerMaterial {
 		
 		Block.Properties blockProperties = Block.Properties.create(material)
 				.sound(soundType)
-				.hardnessAndResistance(5.0f);
+				.hardnessAndResistance(5.0f)
+				.lightValue(lightLevel);
 
 		block_drawers_full_1 = new BlockStandardDrawers(1, false, blockProperties);
 		block_drawers_full_2 = new BlockStandardDrawers(2, false, blockProperties);
@@ -54,14 +57,14 @@ public class DrawerMaterial {
 		
 		block_trim = new BlockTrim(blockProperties);
 		
-		block_drawers_full_1.setRegistryName(SDUnlimited.MODID, mod.getModID() + '_' + name + "_full_drawers_1");
-		block_drawers_full_2.setRegistryName(SDUnlimited.MODID, mod.getModID() + '_'+ name + "_full_drawers_2");
-		block_drawers_full_4.setRegistryName(SDUnlimited.MODID, mod.getModID() + '_'+ name + "_full_drawers_4");
-		block_drawers_half_1.setRegistryName(SDUnlimited.MODID, mod.getModID() + '_'+ name + "_half_drawers_1");
-		block_drawers_half_2.setRegistryName(SDUnlimited.MODID, mod.getModID() + '_'+ name + "_half_drawers_2");
-		block_drawers_half_4.setRegistryName(SDUnlimited.MODID, mod.getModID() + '_'+ name + "_half_drawers_4");
+		block_drawers_full_1.setRegistryName(StorageDrawersUnlimited.MODID, mod.getModID() + '_' + name + "_full_drawers_1");
+		block_drawers_full_2.setRegistryName(StorageDrawersUnlimited.MODID, mod.getModID() + '_'+ name + "_full_drawers_2");
+		block_drawers_full_4.setRegistryName(StorageDrawersUnlimited.MODID, mod.getModID() + '_'+ name + "_full_drawers_4");
+		block_drawers_half_1.setRegistryName(StorageDrawersUnlimited.MODID, mod.getModID() + '_'+ name + "_half_drawers_1");
+		block_drawers_half_2.setRegistryName(StorageDrawersUnlimited.MODID, mod.getModID() + '_'+ name + "_half_drawers_2");
+		block_drawers_half_4.setRegistryName(StorageDrawersUnlimited.MODID, mod.getModID() + '_'+ name + "_half_drawers_4");
 		
-		block_trim.setRegistryName(SDUnlimited.MODID, mod.getModID() + '_'+ name + "_trim");
+		block_trim.setRegistryName(StorageDrawersUnlimited.MODID, mod.getModID() + '_'+ name + "_trim");
 		
 		Item.Properties itemProperties = new Item.Properties()
 							.group(SDUCreativeTabs.TAB);
@@ -132,6 +135,7 @@ public class DrawerMaterial {
 		private String name;
 		private Material material = Material.WOOD;
 		private SoundType soundType = SoundType.WOOD;
+		private int lightLevel = 0;
 		
 		public Builder name(String name) {
 			if(built != null) {
@@ -154,6 +158,11 @@ public class DrawerMaterial {
 			return this;
 		}
 		
+		public Builder lightLevel(int lightLevel) {
+			this.lightLevel = lightLevel;
+			return this;
+		}
+		
 //		public String getName() {
 //			return name;
 //		}
@@ -170,7 +179,7 @@ public class DrawerMaterial {
 				throw new IllegalStateException("No name given");
 			}
 			
-			return built = new DrawerMaterial(name, material, soundType);
+			return built = new DrawerMaterial(name, material, soundType, lightLevel);
 		}
 		
 	}

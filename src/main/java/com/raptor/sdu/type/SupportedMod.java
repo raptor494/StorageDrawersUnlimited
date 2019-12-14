@@ -3,12 +3,11 @@ package com.raptor.sdu.type;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Sets.newHashSet;
 import static com.raptor.sdu.SDUConfig.isValidModID;
+import static com.raptor.sdu.StorageDrawersUnlimited.*;
 import static java.util.Collections.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -29,9 +28,6 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.ModList;
 
 public class SupportedMod {
-	static final List<SupportedMod> internal_modlist = new ArrayList<>();
-	static final Map<String, SupportedMod> internal_modid_lookup = new HashMap<>();
-	
 	private final String modid;
 	private final Set<String> aliases, incompatibleMods;
 	private final Map<String, DrawerMaterial> drawerMaterials;
@@ -41,16 +37,34 @@ public class SupportedMod {
 		this.aliases = aliases;
 		this.incompatibleMods = incompatibleMods;
 		this.drawerMaterials = drawerMaterials;
-		internal_modlist.add(this);
-		internal_modid_lookup.compute(modid, (k, v) -> {
-			if(v == null)
-				return this;
-			if(v.modid.equals(k))
-				throw new IllegalStateException("Duplicate definition for mod " + k);
-			return this;
+		SUPPORTED_MODS.add(this);
+		MODID_LOOKUP.compute(modid, (k, v) -> {
+			if(v == null) {
+				Set<SupportedMod> set = new PrimaryElementHashSet<SupportedMod>(1);
+				set.add(this);
+				return set;
+			}
+			if(v.isEmpty()) {
+				v.add(this);
+				return v;
+			}
+			for(SupportedMod mod : v) {
+				if(mod.modid.equals(k))
+					throw new IllegalStateException("Duplicate definition for mod " + k);
+			}
+			((PrimaryElementHashSet<SupportedMod>)v).setPrimary(this);
+			return v;
 		});
 		for(String alias : aliases) {
-			internal_modid_lookup.putIfAbsent(alias, this);
+			MODID_LOOKUP.compute(alias, (k, v) -> {
+				if(v == null) {
+					Set<SupportedMod> set = new PrimaryElementHashSet<>(1);
+					set.add(this);
+					return set;
+				}
+				v.add(this);
+				return v;
+			});
 		}
 	}
 	
@@ -180,6 +194,22 @@ public class SupportedMod {
 	
 	public @Nullable DrawerMaterial getDefaultMaterial() {
 		return drawerMaterials.isEmpty()? null : drawerMaterials.values().iterator().next();
+	}
+	
+	@Override
+	public int hashCode() {
+		return modid.hashCode();
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("SupportedMod(modid=").append(modid);
+		if(!aliases.isEmpty()) {
+			sb.append(",aliases=").append(aliases);
+		}
+		sb.append(')');
+		return sb.toString();
 	}
 	
 	public static Builder builder() {

@@ -1,10 +1,11 @@
 package com.raptor.sdu.type;
 
+import static com.raptor.sdu.StorageDrawersUnlimited.MODID_LOOKUP;
 import static java.lang.Character.isWhitespace;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Objects;
@@ -26,23 +27,31 @@ public final class ModListParser {
 
 	private static final Matcher IGNORE_LINE = regex("^\\s*(#.*)?$"),
 								 MOD_HEADER = regex("^(?<modid>[-.a-z_0-9]+)(\\s*,\\s*(?<modids>[-.a-z_0-9]+(\\s*,\\s*[-.a-z_0-9]+)*))?\\s*:\\s*(!\\s*(?<disabled>[-.a-z_0-9]+(\\s*,\\s*[-.a-z_0-9]+)*)\\s*)?$"),
-								 MATERIAL_HEADER = regex("(?<name>[a-z_0-9]+)\\s*(:\\s*(?<type>normal|stone|metal|grassy|bamboo)\\s*)?$"),
+								 MATERIAL_HEADER = regex("(?<name>[a-z_0-9]+)\\s*(:\\s*(?=\\w)(?<type>normal|stone|metal|grassy|bamboo)?\\s*(\\blight\\s*=\\s*(?<light>[-+]?\\d+))?\\s*)?$"),
 								 MATERIAL_REF = regex("@(?<modid>[-.a-z_0-9]+):(?<id>[a-z_0-9]+)\\s*$");
 	
 	private static Matcher regex(String regex) {
 		return Pattern.compile(regex).matcher("");
 	}
 	
-	public static void parseModList(String fileName, Scanner scan) {		
-		ArrayList<Line> lines = new ArrayList<>(30);
-		// load lines
+	public static List<Line> readLines(Scanner scan) {
+		List<Line> lines = new ArrayList<>(30);
 		for(int lineNumber = 1; scan.hasNextLine(); lineNumber++) {
 			String line = scan.nextLine();
 			if(!IGNORE_LINE.reset(line).matches())
 				lines.add(new Line(lineNumber, line));
 		}
-		
-		Map<String, Set<String>> modMaterials = new HashMap<>();
+		return lines;
+	}
+	
+	/**
+	 * @param fileName The name of the file the lines were read from, for error messages.
+	 * @param lines The list of lines read from the file.
+	 * @return The number of mods read from the file
+	 * @throws ModListSyntaxException
+	 */
+	public static int parseModList(String fileName, List<Line> lines) throws ModListSyntaxException {
+//		Map<String, Set<String>> modMaterials = new HashMap<>();
 		// check basic syntax
 		for(ListIterator<Line> iter = lines.listIterator(); iter.hasNext(); ) {
 			Line line = iter.next();
@@ -56,20 +65,20 @@ public final class ModListParser {
 			if(line.indent.isEmpty())
 				throw new ModListSyntaxException(fileName, line, "no indented material list found after header for mod " + MOD_HEADER.group("modid"));
 				
-			Set<String> materials = new HashSet<>();
+//			Set<String> materials = new HashSet<>();
 				
 			String indent = line.indent;
 			for(;;) {
 				if(MATERIAL_REF.reset(line).matches()) {
-					Set<String> otherMaterials = modMaterials.get(MATERIAL_REF.group("modid"));
-					if(otherMaterials == null)
-						throw new ModListSyntaxException(fileName, line, "no such mod with id " + MATERIAL_REF.group("modid"));
-					if(!otherMaterials.contains(MATERIAL_REF.group("id")))
-						throw new ModListSyntaxException(fileName, line, "mod " + MATERIAL_REF.group("modid") + " does not define a material named " + MATERIAL_REF.group("id"));
+//					Set<String> otherMaterials = modMaterials.get(MATERIAL_REF.group("modid"));
+//					if(otherMaterials == null)
+//						throw new ModListSyntaxException(fileName, line, "no such mod with id " + MATERIAL_REF.group("modid"));
+//					if(!otherMaterials.contains(MATERIAL_REF.group("id")))
+//						throw new ModListSyntaxException(fileName, line, "mod " + MATERIAL_REF.group("modid") + " does not define a material named " + MATERIAL_REF.group("id"));
 				} else {
 					if(!MATERIAL_HEADER.reset(line).matches())
 						throw new ModListSyntaxException(fileName, line, "invalid material header syntax");
-					materials.add(MATERIAL_HEADER.group("name"));
+//					materials.add(MATERIAL_HEADER.group("name"));
 				}
 				if(iter.hasNext()) {
 					line = iter.next();
@@ -79,19 +88,19 @@ public final class ModListParser {
 					}
 				} else break;
 			}
-			modMaterials.put(MOD_HEADER.group("modid"), materials);
+//			modMaterials.put(MOD_HEADER.group("modid"), materials);
 		}
 		
-		Map<String, SupportedMod.Builder> mods = new HashMap<>(modMaterials.size());
-		modMaterials.clear();
-		modMaterials = null;
+		Map<String, SupportedMod.Builder> mods = new HashMap<>(/*modMaterials.size()*/);
+//		modMaterials.clear();
+//		modMaterials = null;
 		
 		for(ListIterator<Line> iter = lines.listIterator(); iter.hasNext(); ) {
 			SupportedMod.Builder modBuilder = SupportedMod.builder();
 			Line line = iter.next();
 			MOD_HEADER.reset(line).find();
 			String modid = MOD_HEADER.group("modid");
-			if(mods.containsKey(modid)) {
+			if(mods.containsKey(modid) || MODID_LOOKUP.containsKey(modid) && MODID_LOOKUP.get(modid).stream().anyMatch(mod -> mod.getModID().equals(modid))) {
 				throw new ModListSyntaxException(fileName, line, "Duplicate mod list entry '" + modid + "'");
 			}
 			modBuilder.modid(modid);
@@ -123,6 +132,15 @@ public final class ModListParser {
 					modBuilder.drawerMaterial(() -> {
 						SupportedMod.Builder modBuilder2 = mods.get(modid2);
 						if(modBuilder2 == null) {
+							Set<SupportedMod> predefinedMods = MODID_LOOKUP.get(modid2);
+							if(predefinedMods != null) {
+								for(SupportedMod predefinedMod : predefinedMods) {
+									DrawerMaterial mat = predefinedMod.getDrawerMaterial(id);
+									if(mat != null) {
+										return mat;
+									}
+								}
+							}
 							throw new ModListSyntaxException(fileName, theLine, "Could not resolve material reference @" + modid2 + ':' + id);
 						}
 						SupportedMod mod2 = modBuilder2.build();
@@ -133,7 +151,7 @@ public final class ModListParser {
 						return mat;
 					});
 				} else {
-					MATERIAL_HEADER.reset(line).find();
+					MATERIAL_HEADER.reset(line).find(); // don't need to check since we already did in the previous loop
 					DrawerMaterial.Builder material = DrawerMaterial.builder().name(MATERIAL_HEADER.group("name"));
 					
 					String type = MATERIAL_HEADER.group("type");
@@ -161,6 +179,16 @@ public final class ModListParser {
 							throw new AssertionError();
 						}
 					}
+					
+					String light = MATERIAL_HEADER.group("light");
+					if(light != null) {
+						try {
+							material.lightLevel(Integer.parseInt(light));
+						} catch(NumberFormatException e) {
+							throw new ModListSyntaxException(fileName, line, "Invalid light level " + light);
+						}
+					}
+					
 					modBuilder.drawerMaterial(material);
 				}
 				
@@ -178,12 +206,10 @@ public final class ModListParser {
 		}
 		
 		mods.values().forEach(SupportedMod.Builder::build);
-		
+		return mods.size();
 	}
 	
-	
-	
-	private static class Line implements CharSequence {
+	public static class Line implements CharSequence {
 		String indent;
 		String content;
 		int number;
@@ -250,15 +276,6 @@ public final class ModListParser {
 	
 	private ModListParser() {
 		throw new UnsupportedOperationException("ModListParser cannot be instantiated!");
-	}
-	
-	public static class ModListSyntaxException extends RuntimeException {
-		private static final long serialVersionUID = -274200232220169644L;
-
-		public ModListSyntaxException(String fileName, Line line, String message) {
-			super("at " + fileName + ":" + line.number + ": " + message + "\n\t" + line);
-		}
-		
 	}
 
 }

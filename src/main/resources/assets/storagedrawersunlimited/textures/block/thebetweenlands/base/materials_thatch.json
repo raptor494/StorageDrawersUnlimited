@@ -1,0 +1,11 @@
+{
+    "planks": [
+        "tropicraft:thatch_bundle",
+        "upgrade_aquatic:beachgrass_thatch",
+        "mysticalworld:thatch"
+    ],
+    "slabs": [
+        "tropicraft:thatch_slab",
+        "upgrade_aquatic:beachgrass_thatch_slab"
+    ]
+}

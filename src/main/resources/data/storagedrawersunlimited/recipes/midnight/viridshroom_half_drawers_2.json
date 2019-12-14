@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "/X/",
+        "///",
+        "/X/"
+    ],
+    "key": {
+        "/": { "tag": "storagedrawersunlimited:midnight/viridshroom_slabs" },
+        "X": { "tag": "forge:chests" }
+    },
+    "result": { "item": "storagedrawersunlimited:midnight_viridshroom_half_drawers_2", "count": 2 }
+}

@@ -1,7 +1,7 @@
 package com.raptor.sdu.client.model;
 
 import static com.jaquadro.minecraft.storagedrawers.client.model.BasicDrawerModel.Register.replaceBlock;
-import static com.raptor.sdu.type.Mods.*;
+import static com.raptor.sdu.StorageDrawersUnlimited.*;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +12,7 @@ import org.apache.commons.io.IOUtils;
 
 import com.jaquadro.minecraft.storagedrawers.StorageDrawers;
 import com.jaquadro.minecraft.storagedrawers.block.BlockDrawers;
-import com.raptor.sdu.SDUnlimited;
+import com.raptor.sdu.StorageDrawersUnlimited;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Vector3f;
@@ -29,7 +29,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 public class SDUBasicDrawerModel {
 
-	@EventBusSubscriber(modid = SDUnlimited.MODID, bus = Bus.MOD, value = Dist.CLIENT)
+	@EventBusSubscriber(modid = StorageDrawersUnlimited.MODID, bus = Bus.MOD, value = Dist.CLIENT)
 	public static class Register {
 		
 		@SubscribeEvent

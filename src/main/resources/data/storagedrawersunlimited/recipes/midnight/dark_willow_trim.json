@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X/X",
+        "/X/",
+        "X/X"
+    ],
+    "key": {
+        "/": { "tag": "forge:rods/wooden" },
+        "X": { "tag": "storagedrawersunlimited:midnight/dark_willow_planks" }
+    },
+    "result": { "item": "storagedrawersunlimited:midnight_dark_willow_trim", "count": 4 }
+}

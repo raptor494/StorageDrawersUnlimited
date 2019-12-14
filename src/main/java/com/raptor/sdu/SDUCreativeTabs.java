@@ -1,6 +1,6 @@
 package com.raptor.sdu;
 
-import static com.raptor.sdu.type.Mods.ENABLED_MODS;
+import static com.raptor.sdu.StorageDrawersUnlimited.ENABLED_MODS;
 
 import com.jaquadro.minecraft.storagedrawers.core.ModItemGroup;
 import com.raptor.sdu.type.DrawerMaterial;
@@ -15,7 +15,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class SDUCreativeTabs {
 
-	public static final ItemGroup TAB = new ItemGroup(SDUnlimited.MODID) {	
+	public static final ItemGroup TAB = new ItemGroup(StorageDrawersUnlimited.MODID) {	
 		{
 			setNoTitle();
 			setBackgroundImageName("item_search.png");

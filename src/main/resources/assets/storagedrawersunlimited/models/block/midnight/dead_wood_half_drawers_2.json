@@ -1,0 +1,10 @@
+{
+    "parent": "storagedrawers:block/half_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/midnight/drawers_dead_wood_side_h",
+        "front": "storagedrawersunlimited:block/midnight/drawers_dead_wood_front_2",
+        "back": "storagedrawersunlimited:block/midnight/drawers_dead_wood_side",
+        "side": "storagedrawersunlimited:block/midnight/drawers_dead_wood_side_v",
+        "trim": "storagedrawersunlimited:block/midnight/drawers_dead_wood_trim"
+    }
+}

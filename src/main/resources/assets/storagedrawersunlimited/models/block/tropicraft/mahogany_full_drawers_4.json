@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/full_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/tropicraft/drawers_mahogany_side",
+        "front": "storagedrawersunlimited:block/tropicraft/drawers_mahogany_front_4",
+        "side": "storagedrawersunlimited:block/tropicraft/drawers_mahogany_side",
+        "trim": "storagedrawersunlimited:block/tropicraft/drawers_mahogany_trim"
+    }
+}

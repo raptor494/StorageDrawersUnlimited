@@ -1,0 +1,9 @@
+{
+    "planks": [
+        "bamboo_bundle",
+        "quark:bamboo_block"
+    ],
+    "slabs": [
+        "bamboo_slab"
+    ]
+}

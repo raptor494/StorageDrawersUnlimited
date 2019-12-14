@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "///",
+        " X ",
+        "///"
+    ],
+    "key": {
+        "/": { "tag": "storagedrawersunlimited:midnight/bogshroom_slabs" },
+        "X": { "tag": "forge:chests" }
+    },
+    "result": { "item": "storagedrawersunlimited:midnight_bogshroom_half_drawers_1", "count": 1 }
+}

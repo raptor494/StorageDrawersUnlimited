@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X/X",
+        "/X/",
+        "X/X"
+    ],
+    "key": {
+        "/": { "tag": "forge:rods/wooden" },
+        "X": { "tag": "storagedrawersunlimited:tropicraft/palm_planks" }
+    },
+    "result": { "item": "storagedrawersunlimited:tropicraft_palm_trim", "count": 4 }
+}

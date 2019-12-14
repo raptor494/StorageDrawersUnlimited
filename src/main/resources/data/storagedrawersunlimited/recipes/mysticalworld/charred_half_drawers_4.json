@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X/X",
+        "///",
+        "X/X"
+    ],
+    "key": {
+        "/": { "tag": "storagedrawersunlimited:mysticalworld/charred_slabs" },
+        "X": { "tag": "forge:chests" }
+    },
+    "result": { "item": "storagedrawersunlimited:mysticalworld_charred_half_drawers_4", "count": 4 }
+}

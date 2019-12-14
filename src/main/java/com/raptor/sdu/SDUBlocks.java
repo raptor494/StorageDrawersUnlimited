@@ -1,7 +1,7 @@
 package com.raptor.sdu;
 
 import static com.jaquadro.minecraft.storagedrawers.core.ModBlocks.*;
-import static com.raptor.sdu.type.Mods.*;
+import static com.raptor.sdu.StorageDrawersUnlimited.*;
 
 import java.util.Collections;
 import java.util.IdentityHashMap;
@@ -33,7 +33,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class SDUBlocks {
 	
-	@EventBusSubscriber(modid = SDUnlimited.MODID, bus = Bus.MOD)
+	@EventBusSubscriber(modid = StorageDrawersUnlimited.MODID, bus = Bus.MOD)
 	public static class Registration {
 		
 		private static final Logger logger = LogManager.getLogger(SDUBlocks.Registration.class);
@@ -113,7 +113,6 @@ public class SDUBlocks {
 				                DARK_OAK_HALF_DRAWERS_4
 							)
 					));
-			
 		}
 
 		// reregisters a tile entity defined by Storage Drawers
@@ -131,7 +130,7 @@ public class SDUBlocks {
 		
 		private static <T extends TileEntity> void registerTileEntity(RegistryEvent.Register<TileEntityType<?>> event, String name, Supplier<? extends T> factory, Block... blocks) {
             event.getRegistry().register(TileEntityType.Builder.create(factory, blocks)
-                .build(null).setRegistryName(SDUnlimited.MODID, name));
+                .build(null).setRegistryName(StorageDrawersUnlimited.MODID, name));
         }
 		
 		@SubscribeEvent

@@ -1,5 +1,29 @@
+# About this file:
+#	This is the builtin drawer materials list for all the supported mods.
+#	This defines what blocks the mod actually creates, as it does not 
+#	actually register blocks for mods which are not installed.
+#
+#	The syntax is simple:
+#	Each mod begins with a list of one or more mod IDs, followed
+#	by a colon, and optionally followed by an exclamation point and
+#	one or more list of incompatible mods.
+#	If an incompatible mod is installed, none of the drawers for the 
+#	mod will be registered.
+#
+#	After that, there follows an indented list of one or more drawer materials.
+#	A normal drawer material is simply just an identifier, but you can
+#	follow the identifier with a colon and at least one of either
+#	its material or a light level. If you want to put both,
+#	put the material first. The material must be one of normal, stone, metal, grassy, or bamboo.
+#
+#	This file is case-sensitive. In actuality, this means that there should be
+#	no upper-case letters anywhere except in comments.
+#
+#	The grammar for the syntax can be found in `sdmods grammar.txt`.
+
 natura: !storagedrawersextras
 	bloodwood
+# Disabled these because Natura isn't updated for 1.14 yet
 # 	eucalyptus
 # 	sakura
 # 	ghostwood
@@ -31,25 +55,6 @@ biomesoplenty: !storagedrawersextras
 	ebony
 	eucalyptus
 
-quark:
-	white_stained
-	orange_stained
-	magenta_stained
-	light_blue_stained
-	yellow_stained
-	lime_stained
-	pink_stained
-	gray_stained
-	light_gray_stained
-	cyan_stained
-	purple_stained
-	blue_stained
-	brown_stained
-	green_stained
-	red_stained
-	black_stained
-	thatch: grassy # added thach b/c I added thatch for betweenlands, but quark's thatch is differently colored
-
 goodnightsleep:
 	dream
 	@quark:white_stained
@@ -70,6 +75,60 @@ blue_skies:
 
 traverse:
 	@biomesoplenty:fir
+
+thebetweenlands:
+	thatch: grassy
+# Disabled these because The Betweenlands isn't updated for 1.14 yet
+# 	weedwood
+# 	rubber_tree
+# 	giant_root
+# 	hearthgrove
+# 	nibbletwig
+
+tropicraft:
+	bamboo: bamboo
+	palm
+	mahogany
+	@thebetweenlands:thatch
+
+mysticalworld:
+	charred
+	@thebetweenlands:thatch
+
+druidcraft:
+	darkwood
+
+quark:
+	white_stained
+	orange_stained
+	magenta_stained
+	light_blue_stained
+	yellow_stained
+	lime_stained
+	pink_stained
+	gray_stained
+	light_gray_stained
+	cyan_stained
+	purple_stained
+	blue_stained
+	brown_stained
+	green_stained
+	red_stained
+	black_stained
+	@tropicraft:bamboo
+	thatch: grassy # added thach b/c I added thatch for betweenlands, but quark's thatch is differently colored
+
+nethercraft:
+	glowood: light=8
+
+midnight:
+	bogshroom
+	dark_willow
+	dead_wood
+	dewshroom
+	nightshroom
+	viridshroom
+	shadowroot
 
 # aether, aether_legacy:
 # 	skyroot
@@ -163,20 +222,6 @@ traverse:
 	
 # integrateddynamics:
 # 	menril
-		
-# thebetweenlands:
-# 	weedwood
-# 	rubber_tree
-# 	giant_root
-# 	hearthgrove
-# 	nibbletwig
-# 	thatch: grassy
-		
-# tropicraft:
-# 	bamboo: bamboo
-# 	palm
-# 	mahogany
-# 	@thebetweenlands:thatch
 	
 # growthcraft_bamboo: # Why Growthcraft is split up into several mods in the same jar, I will never know.
 # 	@tropicraft:bamboo

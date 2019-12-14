@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "/X/",
+        "///",
+        "/X/"
+    ],
+    "key": {
+        "/": { "tag": "storagedrawersunlimited:midnight/dead_wood_planks" },
+        "X": { "tag": "forge:chests" }
+    },
+    "result": { "item": "storagedrawersunlimited:midnight_dead_wood_full_drawers_2", "count": 2 }
+}

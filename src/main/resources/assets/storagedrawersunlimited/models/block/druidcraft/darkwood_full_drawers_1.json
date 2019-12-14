@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/full_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/druidcraft/drawers_darkwood_side",
+        "front": "storagedrawersunlimited:block/druidcraft/drawers_darkwood_front_1",
+        "side": "storagedrawersunlimited:block/druidcraft/drawers_darkwood_side",
+        "trim": "storagedrawersunlimited:block/druidcraft/drawers_darkwood_trim"
+    }
+}

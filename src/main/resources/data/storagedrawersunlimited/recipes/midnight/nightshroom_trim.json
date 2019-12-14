@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X/X",
+        "/X/",
+        "X/X"
+    ],
+    "key": {
+        "/": { "tag": "forge:rods/wooden" },
+        "X": { "tag": "storagedrawersunlimited:midnight/nightshroom_planks" }
+    },
+    "result": { "item": "storagedrawersunlimited:midnight_nightshroom_trim", "count": 4 }
+}

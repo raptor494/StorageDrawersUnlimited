@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X/X",
+        "/X/",
+        "X/X"
+    ],
+    "key": {
+        "/": { "tag": "forge:rods/wooden" },
+        "X": { "tag": "storagedrawersunlimited:druidcraft/darkwood_planks" }
+    },
+    "result": { "item": "storagedrawersunlimited:druidcraft_darkwood_trim", "count": 4 }
+}

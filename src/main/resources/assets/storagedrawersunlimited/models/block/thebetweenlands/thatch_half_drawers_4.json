@@ -1,0 +1,10 @@
+{
+    "parent": "storagedrawers:block/half_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/thebetweenlands/drawers_thatch_side_h",
+        "front": "storagedrawersunlimited:block/thebetweenlands/drawers_thatch_front_4",
+        "back": "storagedrawersunlimited:block/thebetweenlands/drawers_thatch_side",
+        "side": "storagedrawersunlimited:block/thebetweenlands/drawers_thatch_side_v",
+        "trim": "storagedrawersunlimited:block/thebetweenlands/drawers_thatch_trim"
+    }
+}

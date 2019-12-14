@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X/X",
+        "///",
+        "X/X"
+    ],
+    "key": {
+        "/": { "tag": "storagedrawersunlimited:tropicraft/palm_slabs" },
+        "X": { "tag": "forge:chests" }
+    },
+    "result": { "item": "storagedrawersunlimited:tropicraft_palm_half_drawers_4", "count": 4 }
+}

@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/full_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/midnight/drawers_shadowroot_side",
+        "front": "storagedrawersunlimited:block/midnight/drawers_shadowroot_front_4",
+        "side": "storagedrawersunlimited:block/midnight/drawers_shadowroot_side",
+        "trim": "storagedrawersunlimited:block/midnight/drawers_shadowroot_trim"
+    }
+}

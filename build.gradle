@@ -144,6 +144,7 @@ processResources {
 	
 	from(sourceSets.main.java.srcDirs) {
 		include '**/builtin.sdmods'
+		include '**/sdmods grammar.txt'
 	}
 	
 	from(sourceSets.main.java.srcDirs) {

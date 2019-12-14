@@ -22,10 +22,10 @@ for /f "usebackq tokens=%argshift%*" %%i in (`echo %*`) DO @ set params=%%j
 
 set templates=ResourceCreator\templates
 set out=..\src\main\resources\assets\storagedrawersunlimited
-set options=-i -iq -noreplacelang
+set options=-i -iq -automaterials
 set textures=%out%\textures\block
 
-java -jar "%jarfile%" -templates "%templates%" -out "%out%" -modid "%modid%" -base "%textures%\%modid%\base\base_%name%.png" -trim "%textures%\%modid%\base\trim_%name%.png" -face "%textures%\%modid%\base\face_%name%.png" -materials "%textures%\%modid%\base\materials_%name%.json" -automaterials %options% %params%
+java -jar "%jarfile%" -templates "%templates%" -out "%out%" -modid "%modid%" -base "%textures%\%modid%\base\base_%name%.png" -trim "%textures%\%modid%\base\trim_%name%.png" -face "%textures%\%modid%\base\face_%name%.png" -materials "%textures%\%modid%\base\materials_%name%.json" %options% %params%
 goto done
 
 :usage

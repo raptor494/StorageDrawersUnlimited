@@ -1,0 +1,9 @@
+{
+    "parent": "storagedrawers:block/full_drawers_orientable",
+    "textures": {
+        "top": "storagedrawersunlimited:block/mysticalworld/drawers_charred_side",
+        "front": "storagedrawersunlimited:block/mysticalworld/drawers_charred_front_4",
+        "side": "storagedrawersunlimited:block/mysticalworld/drawers_charred_side",
+        "trim": "storagedrawersunlimited:block/mysticalworld/drawers_charred_trim"
+    }
+}

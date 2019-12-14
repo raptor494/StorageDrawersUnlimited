@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
+import org.apache.commons.lang3.Validate;
+
 public interface StreamableIterable<T> extends Iterable<T> {
 	
 	Stream<T> stream();
@@ -18,26 +20,72 @@ public interface StreamableIterable<T> extends Iterable<T> {
 		return stream().iterator();
 	}
 	
-	static <T> StreamableIterable<T> wrap(Iterable<T> iterable) {
-		return iterable instanceof StreamableIterable? (StreamableIterable<T>)iterable : () -> StreamSupport.stream(iterable.spliterator(), false);
+	static <T> StreamableIterable<T> wrap(final Iterable<T> iterable) {
+		Validate.notNull(iterable);
+		if(iterable instanceof StreamableIterable) {
+			return (StreamableIterable<T>)iterable;
+		}
+		else if(iterable instanceof Collection) {
+			return wrap((Collection<T>)iterable);
+		}
+		else {
+			return new StreamableIterable<T>() {
+				
+				@Override
+				public Stream<T> stream() {
+					return StreamSupport.stream(iterable.spliterator(), false);
+				}
+				
+				@Override
+				public Stream<T> parallelStream() {
+					return StreamSupport.stream(iterable.spliterator(), true);
+				}
+				
+				@Override
+				public Iterator<T> iterator() {
+					return iterable.iterator();
+				}
+				
+				@Override
+				public int hashCode() {
+					return iterable.hashCode();
+				}
+				
+				@Override
+				public String toString() {
+					return "StreamableIterable.wrap(" + iterable + ")";
+				}
+				
+			};
+		}
 	}
 	
-	static <T> StreamableIterable<T> wrap(Collection<T> c) {
+	static <T> StreamableIterable<T> wrap(final Collection<T> collection) {
 		return new StreamableIterable<T>() {
 
 			@Override
-			public Iterator<T> iterator() {
-				return c.iterator();
-			}
-			
-			@Override
 			public Stream<T> stream() {
-				return c.stream();
+				return collection.stream();
 			}
 			
 			@Override
 			public Stream<T> parallelStream() {
-				return c.parallelStream();
+				return collection.parallelStream();
+			}
+			
+			@Override
+			public Iterator<T> iterator() {
+				return collection.iterator();
+			}
+			
+			@Override
+			public int hashCode() {
+				return collection.hashCode();
+			}
+			
+			@Override
+			public String toString() {
+				return "StreamableIterable.wrap(" + collection.toString() + ")";
 			}
 			
 		};

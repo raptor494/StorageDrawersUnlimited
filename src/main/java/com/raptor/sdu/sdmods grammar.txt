@@ -1,0 +1,14 @@
+file: supported_mod*
+
+supported_mod: modid_list ':' ('!' modid_list)? NEWLINE INDENT (drawer_material NEWLINE)+ DEDENT
+
+drawer_material: ID (':' (material_type light_level? | light_level))? # normal material definition
+               | '@' ID ':' ID                                        # material reference from a different mod
+
+modid_list: ID (',' ID)*
+
+light_level: 'light' '=' INT
+material_type: 'normal'|'stone'|'metal'|'grassy'|'bamboo'
+
+ID: [.-a-z_0-9]+
+INT: [-+]? [0-9]+

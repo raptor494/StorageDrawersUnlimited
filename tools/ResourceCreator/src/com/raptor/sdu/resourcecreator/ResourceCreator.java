@@ -75,7 +75,7 @@ public class ResourceCreator {
 			usage = "Show the values of various variables created from the other options without modifying any files")
 	private boolean preview = false;
 	
-	@Option(name = "-previewimages", depends = "-preview",
+	@Option(name = "-previewimages", forbids = "-showimages",
 			usage = "Display images in addition to the variables when doing -preview")
 	private EnumSet<PreviewImageType> previewImages = EnumSet.noneOf(PreviewImageType.class);
 	
@@ -107,10 +107,12 @@ public class ResourceCreator {
 	@Option(name = "-materialid", metaVar = "[<MODID>:]<MATERIAL>",
 			usage = "Set the id of this material")
 	@RegexValidated("([-.a-z_0-9]+:)?[a-z_0-9]+")
+	@ExcludeDebug
 	private String material = null;
 	
 	@Option(name = "-modid")
 	@RegexValidated("[-.a-z_0-9]+")
+	@ExcludeDebug
 	private String modid = "";
 	
 	@Option(name = "-out", metaVar = "DIR", 
@@ -120,6 +122,7 @@ public class ResourceCreator {
 	@Option(name = "-lang", metaVar = "NAME",
 			usage = "The material's localized name")
 	@RegexValidated("([^\\s]| (?!\\s))+")
+	@ExcludeDebug
 	private String materialName;
 	
 	@Option(name = "-q", aliases = "-quiet", 
@@ -138,25 +141,43 @@ public class ResourceCreator {
 			usage = "Don't create the texture files (note that you still have to specify -base)")
 	private boolean noImages = false;
 	
+	@Option(name = "-onlyimages", forbids = {"-noimages", "-nomodels", "-onlymodels", "-noblockstates", "-onlyblockstates", "-nolang", "-onlylang", "-norecipes", "-onlyrecipes", "-notags", "-onlytags"})
+	private boolean onlyImages = false;
+	
 	@Option(name = "-nomodels", 
 			usage = "Don't create the model files")
 	private boolean noModels = false;
+	
+	@Option(name = "-onlymodels", forbids = {"-nomodels", "-noimages", "-onlyimages", "-noblockstates", "-onlyblockstates", "-nolang", "-onlylang", "-norecipes", "-onlyrecipes", "-notags", "-onlytags"})
+	private boolean onlyModels = false;
 	
 	@Option(name = "-nolang", 
 			usage = "Don't create the lang entry")
 	private boolean noLang = false;
 	
+	@Option(name = "-onlylang", forbids = {"-nolang", "-nomodels", "-onlymodels", "-noblockstates", "-onlyblockstates", "-noimages", "-onlyimages", "-norecipes", "-onlyrecipes", "-notags", "-onlytags"})
+	private boolean onlyLang = false;
+	
 	@Option(name = "-norecipes", 
 			usage = "Don't create recipes")
 	private boolean noRecipes = false;
+	
+	@Option(name = "-onlyrecipes", forbids = {"-norecipes", "-nomodels", "-onlymodels", "-noblockstates", "-onlyblockstates", "-nolang", "-onlylang", "-noimages", "-onlyimages", "-notags", "-onlytags"})
+	private boolean onlyRecipes = false;
 	
 	@Option(name = "-noblockstates", 
 			usage = "Don't create blockstates")
 	private boolean noBlockstates = false;
 	
+	@Option(name = "-onlyblockstates", forbids = {"-noblockstates", "-nomodels", "-onlymodels", "-noimages", "-onlyimages", "-nolang", "-onlylang", "-norecipes", "-onlyrecipes", "-notags", "-onlytags"})
+	private boolean onlyBlockstates = false;
+	
 	@Option(name = "-notags",
 			usage = "Don't add tags to storagedrawers/tags/blocks/drawers.json and storagedrawers/tags/items/drawers.json")
 	private boolean noTags = false;
+	
+	@Option(name = "-onlytags", forbids = {"-notags", "-nomodels", "-onlymodels", "-noblockstates", "-onlyblockstates", "-nolang", "-onlylang", "-norecipes", "-onlyrecipes", "-noimages", "-onlyimages"})
+	private boolean onlyTags = false;
 	
 	@Option(name = "-noreplaceimages", forbids = "-noreplace", 
 			usage = "Don't replace texture files if they exist")
@@ -193,6 +214,14 @@ public class ResourceCreator {
 	@Option(name = "-backup",
 			usage = "Backup these types of files.")
 	private EnumSet<BackupType> backupTypes = EnumSet.noneOf(BackupType.class);
+	
+	@Option(name = "-noshade",
+			usage = "Don't automatically add the specified type(s) of shading for the textures")
+	private EnumSet<ShadingType> excludedShadingTypes = EnumSet.noneOf(ShadingType.class);
+	
+	@Option(name = "-delete", forbids = {"-noreplaceimages", "-noreplacemodels", "-noreplacelang", "-noreplacerecipes", "-noreplaceblockstates", "-showimages"}, 
+			usage = "Delete files rather than creating them")
+	private boolean delete = false;
 	
 	private final File overlays_dir, template_models_dir, template_blockstates_dir, template_recipes_dir;
 	private final File textures_dir, block_models_dir, item_models_dir, blockstates_dir, item_tags_dir, recipes_dir, storagedrawers_tags_dir;
@@ -294,14 +323,14 @@ public class ResourceCreator {
 		base		(x->x.base), 
 		trim		(x->x.trim), 
 		face		(x->x.face), 
-		handle_1	(x->x.handle_1), 
-		handle_2	(x->x.handle_2),
-		handle_4	(x->x.handle_4),
-		cutout_1	(x->x.cutout_1),
-		cutout_h	(x->x.cutout_h),
-		cutout_v	(x->x.cutout_v),
-		cutout_4	(x->x.cutout_4),
-		cutout_sort	(x->x.cutout_sort),
+//		handle_1	(x->x.handle_1), 
+//		handle_2	(x->x.handle_2),
+//		handle_4	(x->x.handle_4),
+//		cutout_1	(x->x.cutout_1),
+//		cutout_h	(x->x.cutout_h),
+//		cutout_v	(x->x.cutout_v),
+//		cutout_4	(x->x.cutout_4),
+//		cutout_sort	(x->x.cutout_sort),
 		front_1		(ResourceCreator::make_img_front_1),
 		front_2		(ResourceCreator::make_img_front_2),
 		front_4		(ResourceCreator::make_img_front_4),
@@ -324,6 +353,10 @@ public class ResourceCreator {
 	
 	enum ImageType {
 		front_1, front_2, front_4, side, side_h, side_v, sort, trim
+	}
+	
+	enum ShadingType {
+		face_1, face_2, face_4, trim_1, trim_h, trim_v, trim_4
 	}
 	
 	enum ModelType {
@@ -417,6 +450,50 @@ public class ResourceCreator {
 		template_models_dir = new File(templates_dir, "models");
 		template_blockstates_dir = new File(templates_dir, "blockstates");
 		template_recipes_dir = new File(templates_dir, "recipes");
+		
+		if(onlyImages) {
+			noImages = false;
+			noBlockstates = true;
+			noRecipes = true;
+			noTags = true;
+			noLang = true;
+			noModels = true;
+		} else if(onlyBlockstates) {
+			noImages = true;
+			noBlockstates = false;
+			noRecipes = true;
+			noTags = true;
+			noLang = true;
+			noModels = true;
+		} else if(onlyRecipes) {
+			noImages = true;
+			noBlockstates = true;
+			noRecipes = false;
+			noTags = true;
+			noLang = true;
+			noModels = true;
+		} else if(onlyTags) {
+			noImages = true;
+			noBlockstates = true;
+			noRecipes = true;
+			noTags = false;
+			noLang = true;
+			noModels = true;
+		} else if(onlyLang) {
+			noImages = true;
+			noBlockstates = true;
+			noRecipes = true;
+			noTags = true;
+			noLang = false;
+			noModels = true;
+		} else if(onlyModels) {
+			noImages = true;
+			noBlockstates = true;
+			noRecipes = true;
+			noTags = true;
+			noLang = true;
+			noModels = false;
+		}
 		
 		if(!noImages && (!overlays_dir.exists() || !overlays_dir.isDirectory())) {
 			error("Error: missing 'templates/overlay' directory");
@@ -643,25 +720,25 @@ public class ResourceCreator {
 			
 			animation = null;
 		} else {
-			BufferedImage handle_1 = loadImage(new File(overlays_dir, "handle_1.png"));
-			BufferedImage handle_2 = loadImage(new File(overlays_dir, "handle_2.png"));
-			BufferedImage handle_4 = loadImage(new File(overlays_dir, "handle_4.png"));
-			BufferedImage cutout_1 = loadImage(new File(overlays_dir, "cutout_1.png"));
-			BufferedImage cutout_h = loadImage(new File(overlays_dir, "cutout_h.png"));
-			BufferedImage cutout_v = loadImage(new File(overlays_dir, "cutout_v.png"));
-			BufferedImage cutout_4 = loadImage(new File(overlays_dir, "cutout_4.png"));
-			BufferedImage shading_all = loadImage(new File(overlays_dir, "shading_all.png"));
-			BufferedImage cutout_sort = loadImage(new File(overlays_dir, "cutout_sort.png"));
-			BufferedImage shading_face_1 = loadImage(new File(overlays_dir, "shading_face_1.png"));
-			BufferedImage shading_face_2 = loadImage(new File(overlays_dir, "shading_face_2.png"));
-			BufferedImage shading_face_4 = loadImage(new File(overlays_dir, "shading_face_4.png"));
-			BufferedImage shading_trim_1 = loadImage(new File(overlays_dir, "shading_trim_1.png"));
-			BufferedImage shading_trim_h = loadImage(new File(overlays_dir, "shading_trim_h.png"));
-			BufferedImage shading_trim_v = loadImage(new File(overlays_dir, "shading_trim_v.png"));
-			BufferedImage shading_trim_4 = loadImage(new File(overlays_dir, "shading_trim_4.png"));
+			final BufferedImage handle_1 = loadImage(new File(overlays_dir, "handle_1.png"));
+			final BufferedImage handle_2 = loadImage(new File(overlays_dir, "handle_2.png"));
+			final BufferedImage handle_4 = loadImage(new File(overlays_dir, "handle_4.png"));
+			final BufferedImage cutout_1 = loadImage(new File(overlays_dir, "cutout_1.png"));
+			final BufferedImage cutout_h = loadImage(new File(overlays_dir, "cutout_h.png"));
+			final BufferedImage cutout_v = loadImage(new File(overlays_dir, "cutout_v.png"));
+			final BufferedImage cutout_4 = loadImage(new File(overlays_dir, "cutout_4.png"));
+			final BufferedImage shading_all = loadImage(new File(overlays_dir, "shading_all.png"));
+			final BufferedImage cutout_sort = loadImage(new File(overlays_dir, "cutout_sort.png"));
+			final BufferedImage shading_face_1 = loadImage(new File(overlays_dir, "shading_face_1.png"));
+			final BufferedImage shading_face_2 = loadImage(new File(overlays_dir, "shading_face_2.png"));
+			final BufferedImage shading_face_4 = loadImage(new File(overlays_dir, "shading_face_4.png"));
+			final BufferedImage shading_trim_1 = loadImage(new File(overlays_dir, "shading_trim_1.png"));
+			final BufferedImage shading_trim_h = loadImage(new File(overlays_dir, "shading_trim_h.png"));
+			final BufferedImage shading_trim_v = loadImage(new File(overlays_dir, "shading_trim_v.png"));
+			final BufferedImage shading_trim_4 = loadImage(new File(overlays_dir, "shading_trim_4.png"));
 			
-			BufferedImage base = loadImage(baseImgFile);
-			BufferedImage trim, face;
+			final BufferedImage base = loadImage(baseImgFile);			
+			final BufferedImage trim, face;
 			
 			Set<File> possibleAnimFiles = new HashSet<>();
 			File animFile = new File(baseImgFile + ".mcmeta");
@@ -672,7 +749,7 @@ public class ResourceCreator {
 				if(!hideUsingDefaultFileMessage)
 					println("Trim image file not specified, creating one from the base image file.");
 				int width = getMaxWidth(base, shading_all);
-				trim = layer(ensureWidth(base, width), ensureWidth(shading_all, width));
+				trim = layer(ensureWidth(copy(base), width), ensureWidth(shading_all, width));
 			} else {
 				trim = loadImage(trimImgFile);
 				animFile = new File(trimImgFile + ".mcmeta");
@@ -682,7 +759,7 @@ public class ResourceCreator {
 			if(faceImgFile == null || ignoreNonexistentFiles && !faceImgFile.isFile()) {
 				if(!hideUsingDefaultFileMessage)
 					println("Face image file not specified, using base image as face image");
-				face = base;
+				face = copy(base);
 			} else {
 				face = loadImage(faceImgFile);
 				animFile = new File(faceImgFile + ".mcmeta");
@@ -719,13 +796,13 @@ public class ResourceCreator {
 			this.cutout_4 = ensureWidth(cutout_4, width);
 			//this.shading_all = ensureWidth(shading_all, width);
 			this.cutout_sort = ensureWidth(cutout_sort, width);
-			this.shading_face_1 = ensureWidth(shading_face_1, width);
-			this.shading_face_2 = ensureWidth(shading_face_2, width);
-			this.shading_face_4 = ensureWidth(shading_face_4, width);
-			this.shading_trim_1 = ensureWidth(shading_trim_1, width);
-			this.shading_trim_h = ensureWidth(shading_trim_h, width);
-			this.shading_trim_v = ensureWidth(shading_trim_v, width);
-			this.shading_trim_4 = ensureWidth(shading_trim_4, width);
+			this.shading_face_1 = excludedShadingTypes.contains(ShadingType.face_1)? null : ensureWidth(shading_face_1, width);
+			this.shading_face_2 = excludedShadingTypes.contains(ShadingType.face_2)? null : ensureWidth(shading_face_2, width);
+			this.shading_face_4 = excludedShadingTypes.contains(ShadingType.face_4)? null : ensureWidth(shading_face_4, width);
+			this.shading_trim_1 = excludedShadingTypes.contains(ShadingType.trim_1)? null : ensureWidth(shading_trim_1, width);
+			this.shading_trim_h = excludedShadingTypes.contains(ShadingType.trim_h)? null : ensureWidth(shading_trim_h, width);
+			this.shading_trim_v = excludedShadingTypes.contains(ShadingType.trim_v)? null : ensureWidth(shading_trim_v, width);
+			this.shading_trim_4 = excludedShadingTypes.contains(ShadingType.trim_4)? null : ensureWidth(shading_trim_4, width);
 			this.base = ensureWidth(base, width);
 			this.trim = ensureWidth(trim, width);
 			this.face = (face == base)? this.base : ensureWidth(face, width);
@@ -889,7 +966,9 @@ public class ResourceCreator {
 		
 		println("modid: " + modid);
 		println("material id: " + material);
-		println("material name: " + materialName);
+		if(materialName != null) {
+			println("material name: " + materialName);
+		}
 	}
 	
 	@SuppressWarnings("rawtypes")
@@ -925,6 +1004,10 @@ public class ResourceCreator {
 					println("(lang unchanged)");
 				indent--; println();
 			}
+			for(PreviewImageType previewImageType : previewImages) {
+				showImage(previewImageType.get(this), previewImageType.name());
+			}
+		} else if(!previewImages.isEmpty()) {
 			for(PreviewImageType previewImageType : previewImages) {
 				showImage(previewImageType.get(this), previewImageType.name());
 			}
@@ -994,7 +1077,7 @@ public class ResourceCreator {
 	}
 	
 	BufferedImage make_img_front_1() {
-		return layer(copy(face), 
+		return delete? null : layer(copy(face), 
 				cutout(trim, cutout_1),
 				shading_trim_1,
 				shading_face_1,
@@ -1008,7 +1091,7 @@ public class ResourceCreator {
 	}
 	
 	BufferedImage make_img_front_2() {
-		return layer(copy(face),
+		return delete? null : layer(copy(face),
 				cutout(trim, cutout_h),
 				shading_trim_h,
 				shading_face_2,
@@ -1022,7 +1105,7 @@ public class ResourceCreator {
 	}
 	
 	BufferedImage make_img_front_4() {
-		return layer(copy(face),
+		return delete? null : layer(copy(face),
 				cutout(trim, cutout_4),
 				shading_trim_4,
 				shading_face_4,
@@ -1036,7 +1119,7 @@ public class ResourceCreator {
 	}
 	
 	BufferedImage make_img_side() {
-		return layer(copy(base),
+		return delete? null : layer(copy(base),
 				cutout(trim, cutout_1),
 				shading_trim_1);
 	}
@@ -1048,7 +1131,7 @@ public class ResourceCreator {
 	}
 	
 	BufferedImage make_img_side_h() {
-		return layer(copy(base),
+		return delete? null : layer(copy(base),
 				cutout(trim, cutout_h),
 				shading_trim_h);
 	}
@@ -1060,7 +1143,7 @@ public class ResourceCreator {
 	}
 	
 	BufferedImage make_img_side_v() {
-		return layer(copy(base),
+		return delete? null : layer(copy(base),
 				cutout(trim, cutout_v),
 				shading_trim_v);
 	}
@@ -1072,14 +1155,14 @@ public class ResourceCreator {
 	}
 	
 	BufferedImage make_img_sort() {
-		return layer(copy(base),
+		return delete? null : layer(copy(base),
 				cutout(trim, cutout_sort),
 				shading_trim_1);
 	}
 	
 	void img_trim() {
 		if(!excludeImageTypes.contains(ImageType.trim))
-			saveImage(trim, ImageType.trim);
+			saveImage(delete? null : trim, ImageType.trim);
 	}
 	
 	void mdl_full1() {
@@ -1141,18 +1224,20 @@ public class ResourceCreator {
 	void blockstates() {
 		println("drawers:"); indent++;
 		for(ModelType shape : ModelType.DRAWER_TYPES) {
-			madeNoBlockstates &= saveFormattedJSON(drawer_blockstate_template.replace("${shape}", shape.name()).replace("${model}", formatModidAndMaterial(block_model_filename_template.replace("${shape}", shape.translationKey))), blockstates_dir, blockstate_filename_template.replace("${shape}", shape.translationKey), noReplaceBlockstates, backupBlockstates);
+			madeNoBlockstates &= saveFormattedJSON(delete? null : drawer_blockstate_template.replace("${shape}", shape.name()).replace("${model}", formatModidAndMaterial(block_model_filename_template.replace("${shape}", shape.translationKey))), blockstates_dir, blockstate_filename_template.replace("${shape}", shape.translationKey), noReplaceBlockstates, backupBlockstates);
 		}
 		indent--;
 		
 		println("trim:"); indent++;
-		madeNoBlockstates &= saveFormattedJSON(trim_blockstate_template.replace("${model}", formatModidAndMaterial(block_model_filename_template.replace("${shape}", ModelType.trim.translationKey))), blockstates_dir, blockstate_filename_template.replace("${shape}", ModelType.trim.translationKey), noReplaceBlockstates, backupBlockstates);
+		madeNoBlockstates &= saveFormattedJSON(delete? null : trim_blockstate_template.replace("${model}", formatModidAndMaterial(block_model_filename_template.replace("${shape}", ModelType.trim.translationKey))), blockstates_dir, blockstate_filename_template.replace("${shape}", ModelType.trim.translationKey), noReplaceBlockstates, backupBlockstates);
 		indent--;
 	}
 	
 	@SuppressWarnings("unchecked")
 	String addTranslation(String key, String value) {
 		return (String)lang.compute(key, (k, v) -> {
+			if(delete)
+				return null;
 			if(value.equals(v)) {
 				println(v + " (unchanged)");
 				return v;
@@ -1169,20 +1254,6 @@ public class ResourceCreator {
 		for(ModelType shape : ModelType.VALUES) {
 			addTranslation(shape.translateKey(modid, material), shape.translateValue(materialName));
 		}
-		/*else {
-			for(Entry<String, String> entry : (Set<Entry<String, String>>)original_lang.entrySet()) {
-				String key = entry.getKey().replace("${modid}", modid)
-						.replace("${material}", material);
-				String value = entry.getValue().replace("${MaterialName}", materialName);
-				if(noReplaceLang) {
-					if(lang.putIfAbsent(key, value) == null)
-						println(key,"=",lang.get(key));
-				} else if(!value.equals(lang.put(key, value))) {
-					uneditedLang = false;
-					println(key,"=",value);
-				}	
-			}
-		}*/
 		if(uneditedLang) return;
 		
 		if(backupLang && lang_file.exists()) {
@@ -1216,7 +1287,17 @@ public class ResourceCreator {
 	
 	String getMaterialString(Set<ResourceLocation> materials, String type) {
 		println(type + ":"); indent++;
-		File tagFile = new File(item_tags_dir, modid + '/' + tag_filename_template.replace("${material}", material).replace("${type}", type).replace("${modid}", modid) + ".json");
+		File tagFile = new File(item_tags_dir, modid + '/' + formatModidAndMaterial(tag_filename_template).replace("${type}", type) + ".json");
+		if(delete) {
+			if(!tagFile.exists() || !tagFile.isFile()) {
+				println("(doesn't exist, skipping)"); indent--;
+				return null;
+			} else {
+				println(tagFile); indent--;
+				tagFile.delete();
+				return null;
+			}
+		}
 		switch(materials.size()) {
 			case 0:
 			{				
@@ -1253,7 +1334,7 @@ public class ResourceCreator {
 				StringBuilder textBuilder = new StringBuilder();
 				textBuilder.append("{\n\t\"values\": [],\n\t\"optional\": [");
 				boolean first = true;
-				for(ResourceLocation loc : planks) {
+				for(ResourceLocation loc : materials) {
 					if(first) first = false;
 					else textBuilder.append(',');
 					textBuilder.append("\n\t\t\"");
@@ -1274,30 +1355,32 @@ public class ResourceCreator {
 	}
 	
 	void recipe(ModelType type, String template, String planksStr, String slabsStr) {
-		if(template.contains("${planks}")) {
-			if(planksStr == null) {
-				if(!ignoreNonexistentFiles)
-					println("Warning: could not create recipe for type " + type + ", no planks were specified in the materials file");
-				return;
-			} else {
-				template = template.replace("${planks}", planksStr);
+		if(!delete) {
+			if(template.contains("${planks}")) {
+				if(planksStr == null) {
+					if(!ignoreNonexistentFiles)
+						println("Warning: could not create recipe for type " + type + ", no planks were specified in the materials file");
+					return;
+				} else {
+					template = template.replace("${planks}", planksStr);
+				}
 			}
-		}
-		if(template.contains("${slabs}")) {
-			if(slabsStr == null) {
-				if(!ignoreNonexistentFiles)
-					println("Warning: could not create recipe for type " + type + ", no slabs were specified in the materials file");
-				return;
-			} else {
-				template = template.replace("${slabs}", slabsStr);
+			if(template.contains("${slabs}")) {
+				if(slabsStr == null) {
+					if(!ignoreNonexistentFiles)
+						println("Warning: could not create recipe for type " + type + ", no slabs were specified in the materials file");
+					return;
+				} else {
+					template = template.replace("${slabs}", slabsStr);
+				}
 			}
 		}
 		
 		File dir = new File(recipes_dir, modid);
-		if(!dir.exists() || !dir.isDirectory())
+		if(!delete && (!dir.exists() || !dir.isDirectory()))
 			dir.mkdirs();
 		
-		madeNoRecipes &= saveFormattedJSON(template, dir, recipe_filename_template.replace("${shape}", type.translationKey), noReplaceRecipes, backupRecipes);
+		madeNoRecipes &= saveFormattedJSON(delete? null : template, dir, recipe_filename_template.replace("${shape}", type.translationKey), noReplaceRecipes, backupRecipes);
 	}
 	
 	void tags() {
@@ -1310,6 +1393,11 @@ public class ResourceCreator {
 		JSONParser jsonParser = new JSONParser();
 		JSONObject tags_obj;
 		if(file.exists() && file.isFile()) {
+			if(delete) {
+				println(file);
+				file.delete();
+				return;
+			}
 			try(Reader reader = new FileReader(file)) {
 				
 				tags_obj = (JSONObject)jsonParser.parse(reader);
@@ -1321,6 +1409,10 @@ public class ResourceCreator {
 				throw fatalError();
 			}
 		} else {
+			if(delete) {
+				println("(doesn't exist, skipping)");
+				return;
+			}
 			tags_obj = new JSONObject();
 			File parent_dir = file.getParentFile();
 			if(!parent_dir.exists() || !parent_dir.isDirectory())
@@ -1371,11 +1463,11 @@ public class ResourceCreator {
 	
 	void mdl(ModelType type, String blockModel, String itemModel) {
 		println("block:"); indent++;
-		madeNoModels &= saveFormattedJSON(blockModel, block_models_dir, block_model_filename_template.replace("${shape}", type.translationKey).replace("${modid}", modid), noReplaceModels, backupBlockModels);
+		madeNoModels &= saveFormattedJSON(delete? null : blockModel, block_models_dir, block_model_filename_template.replace("${shape}", type.translationKey).replace("${modid}", modid), noReplaceModels, backupBlockModels);
 		indent--;
 		
 		println("item:"); indent++;
-		madeNoModels &= saveFormattedJSON(itemModel, item_models_dir, item_model_filename_template.replace("${shape}", type.translationKey).replace("${modid}", modid), noReplaceModels, backupItemModels);
+		madeNoModels &= saveFormattedJSON(delete? null : itemModel, item_models_dir, item_model_filename_template.replace("${shape}", type.translationKey).replace("${modid}", modid), noReplaceModels, backupItemModels);
 		indent--;
 	}
 	
@@ -1411,7 +1503,17 @@ public class ResourceCreator {
 	// returns false if file was edited
 	boolean saveFormattedJSON(String text, File output_dir, String type, boolean noReplace, boolean backup) {
 		File file = new File(output_dir, type.replace("${modid}", modid).replace("${material}", material) + ".json");
-		if(noReplace && file.exists()) {
+		if(delete) {
+			if(!file.exists() || !file.isFile()) {
+				println("(doesn't exist, skipped)");
+				return true;
+			} else {
+				println(file);
+				if(backup)
+					backup(file);
+				return file.delete();
+			}
+		} else if(noReplace && file.exists()) {
 			println("(exists, skipped)");
 			return true;
 		}
@@ -1420,7 +1522,17 @@ public class ResourceCreator {
 	}
 	
 	boolean saveText(String text, File file, boolean noReplace, boolean backup) {
-		if(noReplace && file.exists()) {
+		if(delete) {
+			if(!file.exists() || !file.isFile()) {
+				println("(doesn't exist, skipped)");
+				return true;
+			} else {
+				println(file);
+				if(backup)
+					backup(file);
+				return file.delete();
+			}
+		} else if(noReplace && file.exists()) {
 			println("(exists, skipped)");
 			return true;
 		}
@@ -1430,6 +1542,17 @@ public class ResourceCreator {
 	
 	// returns false if file was edited
 	boolean saveText(String text, File file, boolean backup) {
+		if(delete) {
+			if(!file.exists() || !file.isFile()) {
+				println("(doesn't exist, skipped)");
+				return true;
+			} else {
+				println(file);
+				if(backup)
+					backup(file);
+				return file.delete();
+			}
+		}
 		try {
 			Files.write(file.toPath(), text.getBytes());
 			if(backup && file.exists())
@@ -1487,21 +1610,43 @@ public class ResourceCreator {
 	void saveImage(BufferedImage img, ImageType type) {
 		File file = new File(textures_dir, "drawers_" + material + "_" + type + ".png");
 		println(type + ":"); indent++;
-		if(noReplaceImageTypes.contains(type) && file.exists()) {
-			println("(exists, skipped)"); indent--;
-			return;
+		if(!delete) {
+			if(noReplaceImageTypes.contains(type) && file.exists()) {
+				println("(exists, skipped)"); indent--;
+				return;
+			}
+			if(showImageTypes.contains(type)) {
+				showImage(img, type.name());
+			}
 		}
-		if(showImageTypes.contains(type)) {
-			showImage(img, type.name());
-		}
-		println(file); indent--;
 		try {
-			ImageIO.write(img, "png", file);
-			madeNoImages = false;
-			if(animation != null) {
-				file = new File(file + ".mcmeta");
-				indent++; println(file); indent--;
-				saveText(animation, file, backupTextures);
+			if(backupTextures) {
+				backup(file);
+			}
+			if(delete) {
+				if(!file.exists() || !file.isFile()) {
+					if(animation != null) {
+						file = new File(file + ".mcmeta");
+						if(file.exists() && file.isFile()) {
+							println(file); indent--;
+							file.delete();
+							return;
+						}
+					}
+					println("(doesn't exist, skipped)"); indent--;
+				} else {
+					println(file); indent--;
+					file.delete();
+				}
+			} else {
+				println(file); indent--;
+				ImageIO.write(img, "png", file);
+				madeNoImages = false;
+				if(animation != null) {
+					file = new File(file + ".mcmeta");
+					indent++; println(file); indent--;
+					saveText(animation, file, backupTextures);
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -1645,10 +1790,11 @@ public class ResourceCreator {
 		return btm;
 	}
 	
-	BufferedImage layer(BufferedImage btm, BufferedImage layer0, BufferedImage... layers) {
+	BufferedImage layer(BufferedImage btm, /*@Nullable*/ BufferedImage layer0, /*(@Nullable*/ BufferedImage/*)*/... layers) {
 		BufferedImage result = layer(btm, layer0);
 		for(BufferedImage layer : layers) {
-			result = layer(result, layer);
+			if(layer != null)
+				result = layer(result, layer);
 		}
 		return result;
 	}

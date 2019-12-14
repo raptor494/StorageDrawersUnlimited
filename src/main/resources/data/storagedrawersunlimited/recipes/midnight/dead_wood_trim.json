@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X/X",
+        "/X/",
+        "X/X"
+    ],
+    "key": {
+        "/": { "tag": "forge:rods/wooden" },
+        "X": { "tag": "storagedrawersunlimited:midnight/dead_wood_planks" }
+    },
+    "result": { "item": "storagedrawersunlimited:midnight_dead_wood_trim", "count": 4 }
+}
