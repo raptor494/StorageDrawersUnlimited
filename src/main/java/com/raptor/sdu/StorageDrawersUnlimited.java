@@ -78,17 +78,6 @@ public class StorageDrawersUnlimited {
 //		proxy.setup(event);
 	}
 
-	/**
-	 * <strong>ONLY</strong> use this if you know that an error should never be
-	 * thrown! It's to trick the compiler into throwing an exception which does
-	 * not inherit from Error or RuntimeException, without wrapping it in a
-	 * RuntimeException first.
-	 */
-	@SuppressWarnings("unchecked")
-	private static <E extends Throwable> E sneakyThrow(Throwable error) throws E {
-		throw(E) error;
-	}
-
 	private static Field modifiers_field;
 
 	static {
@@ -96,7 +85,7 @@ public class StorageDrawersUnlimited {
 			modifiers_field = Field.class.getDeclaredField("modifiers");
 			modifiers_field.setAccessible(true);
 		} catch(NoSuchFieldException | SecurityException e) {
-			throw sneakyThrow(e);
+			throw new Error(e);
 		}
 	}
 
@@ -106,13 +95,13 @@ public class StorageDrawersUnlimited {
 			field = clazz.getDeclaredField(name);
 			field.setAccessible(true);
 		} catch(NoSuchFieldException | SecurityException e) {
-			throw sneakyThrow(e);
+			throw new Error(e);
 		}
 		if(Modifier.isFinal(field.getModifiers())) {
 			try {
 				modifiers_field.setInt(field, field.getModifiers() & ~Modifier.FINAL);
-			} catch(IllegalArgumentException | IllegalAccessException e) {
-				throw sneakyThrow(e);
+			} catch(IllegalAccessException e) {
+				throw new Error(e);
 			}
 		}
 		return field;
@@ -121,8 +110,8 @@ public class StorageDrawersUnlimited {
 	private static void setField(Field field, Object value) {
 		try {
 			field.set(null, value);
-		} catch(IllegalArgumentException | IllegalAccessException e) {
-			throw sneakyThrow(e);
+		} catch(IllegalAccessException e) {
+			throw new Error(e);
 		}
 	}
 
