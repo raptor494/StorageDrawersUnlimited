@@ -1,7 +1,7 @@
 {
 	"values": [],
 	"optional": [
-		"biomesoplenty:fir_planks",
-		"traverse:fir_planks"
+		"traverse:fir_slab",
+		"biomesoplenty:fir_slab"
 	]
 }

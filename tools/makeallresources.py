@@ -9,7 +9,7 @@ DO_LANG         = 0
 DO_BLOCKSTATES  = 0
 DO_TEXTURES     = 0
 DO_RECIPES      = 1
-DO_TAGS         = 1
+DO_TAGS         = 0
 
 REPLACE_MODELS      = 1
 REPLACE_LANG        = 1
